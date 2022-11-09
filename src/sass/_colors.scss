@@ -1,0 +1,19 @@
+$background-color: #eee643;
+$primary-color: #094e93;
+$loading-color: rgba($primary-color, 0.6);
+$primary-color-dark: #074583;
+$panel-color: #063565;
+$input-background-color: #fffffff0;
+$text-removido: #ce2031;
+$text-adicionado: #20ce77;
+
+:export {
+    background_color: $background-color;
+    loading: $loading-color;
+    primary_color: $primary-color;
+    primary_color_dark: $primary-color-dark;
+    panel: $panel-color;
+    input_background_color: $input-background-color;
+    text_removido: $text-removido;
+    text_adicionado: $text-adicionado;
+}
