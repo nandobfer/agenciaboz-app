@@ -18,7 +18,6 @@ export const Home = () => {
     return (
         <div className='main-container'>
             <img src="boz-LogoBranco.png" alt="BOZ" />
-            <h1>Login</h1>
             <Form initialValues={inputs} onSubmit={values => onFormSubmit(values)}>
                 <label htmlFor="input_login">Usuário</label>
                 <Input
