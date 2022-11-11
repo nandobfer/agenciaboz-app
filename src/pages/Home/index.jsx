@@ -1,5 +1,6 @@
 import { Form, Input } from 'react-burgos';
 import { useNavigate } from 'react-router-dom';
+import { api } from '../../api';
 import './style.scss';
 
 export const Home = () => {
@@ -7,7 +8,13 @@ export const Home = () => {
     const navigate = useNavigate();
 
     const onFormSubmit = (values) => {
-        alert(JSON.stringify(values, null, 2))
+        api.post('/login', {user: values.input_login, password: values.input_senha})
+        .then((response) => {
+            alert(JSON.stringify(response.data, null, 2))
+        })
+        .catch((error) => {
+            alert(error)
+        })
     }
 
     const inputs = {

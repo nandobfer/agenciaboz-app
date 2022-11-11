@@ -1,0 +1,5 @@
+{
+    "_api": "https://agenciaboz.com.br:4000/api/v1/app/",
+    "api": "http://localhost:4000/api/v1/app/",
+    "timeout": 10
+}
