@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Form, Input } from 'react-burgos';
 import { useNavigate } from 'react-router-dom';
 import { api } from '../../api';
@@ -6,15 +7,18 @@ import './style.scss';
 export const Home = () => {
 
     const navigate = useNavigate();
+    const [feedback, setFeedback] = useState('')
 
     const onFormSubmit = (values) => {
-        api.post('/login', {user: values.input_login, password: values.input_senha})
-        .then((response) => {
-            alert(JSON.stringify(response.data, null, 2))
-        })
-        .catch((error) => {
-            alert(error)
-        })
+        api.post('/login', { user: values.input_login, password: values.input_senha })
+            .then((response) => {
+                if (response.data.error) {
+                    setFeedback(response.data.error)
+                }
+            })
+            .catch((error) => {
+                alert(error)
+            })
     }
 
     const inputs = {
@@ -41,8 +45,10 @@ export const Home = () => {
                     className='default-input'
                 />
                 <button className='default-button' type="submit">Entrar</button>
+                <p>{feedback}</p>
 
             </Form>
+
         </div>
     )
 }
