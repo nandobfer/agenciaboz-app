@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
 import { Home } from "./pages/Home";
 import { Login } from "./pages/Login";
+import { Signup } from "./pages/Signup";
 import { Users } from "./pages/Users";
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
         <Route index element={<Login />} />
         <Route path='/home' element={<Home />} />
         <Route path='/usuarios' element={<Users />} />
+        <Route path='/cadastro' element={<Signup />} />
       </Routes>
     </BrowserRouter>
   );

@@ -24,6 +24,7 @@ export const Home = () => {
             <h1>{user.name}</h1>
             <button onClick={() => navigate('/')}>Sair</button>
             <button onClick={toUsers}>Usuários</button>
+            <button onClick={() => navigate('/cadastro')}>Cadastrar</button>
         </section>
     )
 }
