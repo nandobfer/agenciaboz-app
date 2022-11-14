@@ -25,6 +25,7 @@ export const Home = () => {
             <button onClick={() => navigate('/')}>Sair</button>
             <button onClick={toUsers}>Usuários</button>
             <button onClick={() => navigate('/cadastro')}>Cadastrar</button>
+            <button onClick={() => navigate('/tarefas')}>Tarefas</button>
         </section>
     )
 }

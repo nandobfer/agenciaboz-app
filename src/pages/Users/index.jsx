@@ -7,7 +7,7 @@ export const Users = () => {
     console.log(users)
 
     const formatCPF = (cpf) => {
-        if (cpf == 'None') {
+        if (cpf === 'None') {
             return null
         }
         return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4")
