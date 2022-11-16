@@ -3,10 +3,14 @@ import { Field } from 'formik';
 import { useUserType } from '../../hooks/useUserType';
 import './style.scss';
 import { api } from '../../api';
+import { useUserRole } from '../../hooks/useUserRole';
 
 export const Signup = () => {
 
     const user_types = useUserType()
+
+    const roles = useUserRole()
+
     // EXEMPLO DE HOOK
     // const cargos = useCargos()
 
@@ -36,7 +40,6 @@ export const Signup = () => {
             })
     }
 
-    // EXEMPLO DE MASCARA
     const cpf_mask = [/\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/, /\d/]
 
     const dateMask = (string) => {
@@ -105,7 +108,6 @@ export const Signup = () => {
                 </div>
                 <div className="input-container">
                     <label htmlFor="cpf">CPF</label>
-                    {/* EXEMPLO DE MASCARA */}
                     <Input mask={cpf_mask} id="cpf" type="text" />
                 </div>
                 <div className="input-container">
@@ -115,7 +117,13 @@ export const Signup = () => {
                 <div className="input-container">
                     <label htmlFor="role">Cargo</label>
                     {/* EXEMPLO DE MAP */}
-                    <Input id="role" type="text" />
+                    <Field as='select' name='role' id='role'>
+                        {roles.map(item => {
+                            return (
+                                <option key={item.id} value={item.id}>{item.name}</option>
+                            )
+                        })}
+                    </Field>
                 </div>
                 <button type='submit'>Cadastrar</button>
             </Form>
