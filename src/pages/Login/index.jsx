@@ -12,19 +12,17 @@ export const Login = () => {
     const onFormSubmit = (values) => {
         console.log(values)
 
-        navigate('/home', {state: {user: {name: 'Luiz'}}})
-
-        // api.post('/login', { user: values.input_login, password: values.input_senha })
-        //     .then((response) => {
-        //         if (response.data.error) {
-        //             setFeedback(response.data.error)
-        //         } else {
-        //             navigate('/home', {state: {user: response.data}})
-        //         }
-        //     })
-        //     .catch((error) => {
-        //         alert(error)
-        //     })
+        api.post('/login', { user: values.input_login, password: values.input_senha })
+            .then((response) => {
+                if (response.data.error) {
+                    setFeedback(response.data.error)
+                } else {
+                    navigate('/home', {state: {user: response.data}})
+                }
+            })
+            .catch((error) => {
+                alert(error)
+            })
     }
 
     const inputs = {
@@ -52,6 +50,7 @@ export const Login = () => {
                 />
                 <label htmlFor="input_senha">Senha</label>
                 <Input
+                    type='password'
                     id='input_senha'
                     placeholder='Senha'
                     className='default-input'
