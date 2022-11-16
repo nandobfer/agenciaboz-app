@@ -11,22 +11,32 @@ export const Login = () => {
 
     const onFormSubmit = (values) => {
         console.log(values)
-        api.post('/login', { user: values.input_login, password: values.input_senha })
-            .then((response) => {
-                if (response.data.error) {
-                    setFeedback(response.data.error)
-                } else {
-                    navigate('/home', {state: {user: response.data}})
-                }
-            })
-            .catch((error) => {
-                alert(error)
-            })
+
+        navigate('/home', {state: {user: {name: 'Luiz'}}})
+
+        // api.post('/login', { user: values.input_login, password: values.input_senha })
+        //     .then((response) => {
+        //         if (response.data.error) {
+        //             setFeedback(response.data.error)
+        //         } else {
+        //             navigate('/home', {state: {user: response.data}})
+        //         }
+        //     })
+        //     .catch((error) => {
+        //         alert(error)
+        //     })
     }
 
     const inputs = {
         input_login: '',
         input_senha: '',
+    }
+
+    const mailMask = (string) => {
+        const placeholder = '@agenciaboz.com.br'
+        const mask = Array.from(string).map(() => /[a-z]/i)
+
+        return mask
     }
 
     return (
@@ -35,14 +45,13 @@ export const Login = () => {
             <Form initialValues={inputs} onSubmit={values => onFormSubmit(values)}>
                 <label htmlFor="input_login">Usuário</label>
                 <Input
-                    mask={() => false}
+                    mask={(string) => mailMask(string)}
                     id='input_login'
                     placeholder='@agenciaboz.com.br'
                     className='default-input'
                 />
                 <label htmlFor="input_senha">Senha</label>
                 <Input
-                    mask={() => false}
                     id='input_senha'
                     placeholder='Senha'
                     className='default-input'
