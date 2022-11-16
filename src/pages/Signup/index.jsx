@@ -22,22 +22,59 @@ export const Signup = () => {
     const onFormSubmit = (values) => {
         const [day, month, year] = values.birthday.split('/')
         const data = {
-            ...values, 
-            cpf: values.cpf.replaceAll('.', '').replaceAll('-',''),
-            birthday: new Date(year, month-1, day)
+            ...values,
+            cpf: values.cpf.replaceAll('.', '').replaceAll('-', ''),
+            birthday: new Date(year, month - 1, day)
         }
         api.post('/cadastrar', data)
-        .then(response => {
-            const data = response.data
-            alert(JSON.stringify(data, null, 2))
-        })
-        .catch(error => {
-            alert(error)
-        })
+            .then(response => {
+                const data = response.data
+                alert(JSON.stringify(data, null, 2))
+            })
+            .catch(error => {
+                alert(error)
+            })
     }
 
     // EXEMPLO DE MASCARA
     const cpf_mask = [/\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/, /\d/]
+
+    const dateMask = (string) => {
+        let list = [/[0-3]/, /\d/, '/', /[0-1]/, /\d/]
+        if (string[0] == '3') {
+            list[1] = /[0-1]/
+        }
+
+        if (string[3] == '1') {
+            list[4] = /[0-2]/
+        }
+
+        const data = new Date
+        const current_year = data.getFullYear()
+
+        const maxYear = current_year - 14
+        const minYear = current_year - 100
+
+        const milhar = new RegExp(`[${String(minYear)[0]}-${String(maxYear)[0]}]`)
+
+        let centena = null
+        if (string[6] == String(maxYear)[0]) {
+            centena = /0/
+        } else {
+            centena = /9/
+        }
+
+        let dezena = null
+        if (string[7] == String(maxYear)[1]) {
+            dezena = new RegExp(`[0-${String(maxYear)[2]}]`)
+        } else {
+            dezena = new RegExp(`[${String(minYear)[2]}-9]`)
+        }
+
+        const year = ['/', milhar, centena, dezena, /\d/]
+        list.push(...year)
+        return list
+    }
 
 
     return (
@@ -73,7 +110,7 @@ export const Signup = () => {
                 </div>
                 <div className="input-container">
                     <label htmlFor="birthday">Data de nascimento</label>
-                    <Input id="birthday" type="text" />
+                    <Input mask={dateMask} id="birthday" type="text" />
                 </div>
                 <div className="input-container">
                     <label htmlFor="role">Cargo</label>
