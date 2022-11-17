@@ -11,6 +11,7 @@ export const Login = () => {
 
     const onFormSubmit = (values) => {
         console.log(values)
+
         api.post('/login', { user: values.input_login, password: values.input_senha })
             .then((response) => {
                 if (response.data.error) {
@@ -29,6 +30,13 @@ export const Login = () => {
         input_senha: '',
     }
 
+    const mailMask = (string) => {
+        const placeholder = '@agenciaboz.com.br'
+        const mask = Array.from(string).map(() => /[a-z]/i)
+
+        return mask
+    }
+
     return (
         <div className='login-page'>
             <div className='main-container'>
@@ -36,14 +44,14 @@ export const Login = () => {
                 <Form initialValues={inputs} onSubmit={values => onFormSubmit(values)}>
                     <label htmlFor='input_login'>Usuário</label>
                     <Input
-                        mask={() => false}
+                        mask={(string) => mailMask(string)}
                         id='input_login'
                         placeholder='@agenciaboz.com.br'
                         className='default-input'
                     />
                     <label htmlFor='input_senha'>Senha</label>
                     <Input
-                        mask={() => false}
+                        type='password'
                         id='input_senha'
                         placeholder='Senha'
                         className='default-input'
