@@ -125,8 +125,8 @@ export const Signup = () => {
                         })}
                     </Field>
                 </div>
-                <button type='submit'>Cadastrar</button>
             </Form>
+            <button type='submit'>Cadastrar</button>
         </div>
     )
 }

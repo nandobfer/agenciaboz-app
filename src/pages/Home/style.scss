@@ -1,0 +1,36 @@
+@import '/src/sass/colors';
+
+.home-page {
+    background: rgba(0, 175, 239, 0.4);
+    flex: 1;
+    flex-direction: column;
+    height: 100vh;
+    align-items: center;
+
+    h1 {
+        font-size: 6vh;
+        margin-top: 9vh;
+        margin-bottom: 9vh;
+    }
+
+    .buttons-container {
+        gap: 3vw;
+    }
+
+    button {
+        background-color: #004f4f;
+        cursor: pointer;
+        font-size: 3vh;
+        border-radius: 5vw;
+        height: 5vh;
+        width: 7vw;
+        border: none;
+        color: white;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background-color: black;
+        transform: scale(1.1);
+    }
+}

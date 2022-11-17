@@ -9,23 +9,25 @@ export const Home = () => {
 
     const toUsers = () => {
         api.post('/usuarios', {})
-        .then((response) => {
-            if (response.data.error) alert(JSON.stringify(response.data.error, null, 2))
+            .then((response) => {
+                if (response.data.error) alert(JSON.stringify(response.data.error, null, 2))
 
-            navigate('/usuarios', {state: {users: response.data}})
-        })
-        .catch((error) => {
-            alert(JSON.stringify(error, null, 2))
-        })
+                navigate('/usuarios', { state: { users: response.data } })
+            })
+            .catch((error) => {
+                alert(JSON.stringify(error, null, 2))
+            })
     }
-    
+
     return (
-        <section className="home-page">
-            <h1>{user.name}</h1>
-            <button onClick={() => navigate('/')}>Sair</button>
-            <button onClick={toUsers}>Usuários</button>
-            <button onClick={() => navigate('/cadastro')}>Cadastrar</button>
-            <button onClick={() => navigate('/tarefas')}>Tarefas</button>
-        </section>
+        <div className='home-page'>
+            <h1>Olá, {user.name}</h1>
+            <div className="buttons-container">
+                <button onClick={() => navigate('/tarefas')}>Tarefas</button>
+                <button onClick={toUsers}>Usuários</button>
+                <button onClick={() => navigate('/cadastro')}>Cadastrar</button>
+                <button onClick={() => navigate('/')}>Sair</button>
+            </div>
+        </div>
     )
 }

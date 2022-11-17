@@ -1,10 +1,72 @@
 @import '/src/sass/colors';
 
 .Signup-page {
+    background: rgba(0, 175, 239, 0.4);
+    flex: 1;
     flex-direction: column;
+    height: 100vh;
     align-items: center;
 
-    .input-container {
+    h1 {
+        font-size: 6vh;
+        margin-top: 6vh;
+        margin-bottom: 6vh;
+    }
 
+    Form {
+        align-items: center;
+    }
+
+    .input-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    label {
+        margin-bottom: 0.5vh;
+    }
+
+    input {
+        border: none;
+        border-radius: 6vw;
+        margin-bottom: 2vh;
+        height: 3vh;
+        width: 20vw;
+        padding-left: 3vw;
+    }
+
+    input:focus {
+        outline: 3px solid $secondary-color;
+    }
+
+    select {
+        border: none;
+        border-radius: 6vw;
+        margin-bottom: 2vh;
+        height: 3vh;
+        width: 20vw;
+        padding-left: 7vw;
+    }
+
+    select:focus {
+        outline: 3px solid $secondary-color;
+    }
+
+    button {
+        background-color: #004f4f;
+        cursor: pointer;
+        font-size: 3vh;
+        border-radius: 5vw;
+        height: 5vh;
+        width: 7vw;
+        margin-top: 3vh;
+        border: none;
+        color: white;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background-color: black;
+        transform: scale(1.1);
     }
 }
