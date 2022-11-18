@@ -1,0 +1,11 @@
+@import '/src/sass/colors';
+
+.Topbar-Component {
+    align-items: center;
+    width: 100vw;
+    background-color: $primary-color;
+
+    p {
+        color: white;
+    }
+}
