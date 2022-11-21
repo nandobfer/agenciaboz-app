@@ -2,11 +2,13 @@ $primary-color: #6EC1E4;
 $secondary-color: #606060;
 $background-color: #F5F5F5;
 $search-icon-color: #9584FF;
+$menu-gray-color: #898989;
 $white: #FFFFFF;
 
 
 :export {
     primary_color: $primary-color;
-    search_icon: $search-icon-color;
+    search_icon_color: $search-icon-color;
+    menu_gray_color: $menu-gray-color;
     white: $white;
 }

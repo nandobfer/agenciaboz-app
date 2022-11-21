@@ -10,7 +10,7 @@ export const Searchbox = () => {
     }
 
     const icon_style = {
-        color: COLORS.search_icon
+        color: COLORS.search_icon_color
     }
 
     const onFormSubmit = (values) => {

@@ -1,12 +1,26 @@
 @import '/src/sass/colors';
 
+
 .SideBar-Component {
-    flex: 0.2;
+    flex: 0.15;
     height: 100%;
     flex-direction: column;
-    border: solid 1px red;
+    padding-top: 2vh;
+    transition: 0.3s;
 
-    .menu-container {
+    * {
+        font-family: Segoe UI;
+    }
+
+    .button {
+        align-items: center;
         cursor: pointer;
+        margin: 2vh 0;
+        padding: 0 1vw;
+
+        p {
+            color: $menu_gray_color;
+            margin-left: 1vw;
+        }
     }
 }

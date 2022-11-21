@@ -10,7 +10,7 @@ export const Tasks = () => {
             <div className="SideBar-wrapper">
                 <SideBar />
                 <div className="main-container">
-                    
+
                 </div>
             </div>
         </div>
