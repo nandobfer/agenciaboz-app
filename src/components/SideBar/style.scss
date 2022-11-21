@@ -1,0 +1,12 @@
+@import '/src/sass/colors';
+
+.SideBar-Component {
+    flex: 0.2;
+    height: 100%;
+    flex-direction: column;
+    border: solid 1px red;
+
+    .menu-container {
+        cursor: pointer;
+    }
+}
