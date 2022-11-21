@@ -4,8 +4,16 @@
     align-items: center;
     width: 100vw;
     background-color: $primary-color;
+    padding: 0.5vw;
 
     p {
+        font-size: 3vh;
         color: white;
+        margin-left: 2vw;
+        margin-right: 5vw;
+    }
+
+    input {
+        width: 60vw;
     }
 }
