@@ -1,5 +1,16 @@
 @import '/src/sass/colors';
 
 .Tasks-page {
-    
+    flex-direction: column;
+    height: 100vh;
+
+    .SideBar-wrapper {
+        height: 100%;
+
+        .main-container {
+            background-color: $background-color;
+            flex: 0.8;
+            border: solid 1px blue;
+        }
+    }
 }
