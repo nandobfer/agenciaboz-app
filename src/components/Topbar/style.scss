@@ -9,11 +9,23 @@
     p {
         font-size: 3vh;
         color: white;
-        margin-left: 2vw;
-        margin-right: 5vw;
+        margin-left: 3vw;
+        margin-right: 10vw;
     }
 
     input {
         width: 60vw;
+        border: none;
+        border-radius: 0.3vw;
+        height: 4vh;
     }
+
+    .settings-icon-container {
+        margin-left: 9vw;
+    }
+
+    .notifications-icon-container {
+        margin: 0 2vw;
+    }
+
 }

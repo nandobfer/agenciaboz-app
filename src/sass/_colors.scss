@@ -1,8 +1,12 @@
 $primary-color: #6EC1E4;
 $secondary-color: #606060;
 $background-color: #F5F5F5;
+$search-icon-color: #9584FF;
+$white: #FFFFFF;
 
 
 :export {
     primary_color: $primary-color;
+    search_icon: $search-icon-color;
+    white: $white;
 }

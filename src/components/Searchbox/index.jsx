@@ -1,7 +1,7 @@
 import './style.scss';
 import { Form, Input } from 'react-burgos';
 import SearchIcon from '@mui/icons-material/Search';
-import COLORS from '../../sass/_colors.scss'
+import COLORS from '../../sass/_colors.scss';
 
 export const Searchbox = () => {
 
@@ -10,7 +10,7 @@ export const Searchbox = () => {
     }
 
     const icon_style = {
-        color: 'red'
+        color: COLORS.search_icon
     }
 
     const onFormSubmit = (values) => {
@@ -21,10 +21,11 @@ export const Searchbox = () => {
         <div className="Searchbox-Component">
             <Form initialValues={inputs} onSubmit={values => onFormSubmit(values)}>
                 <Input
+                    className='search-input'
                     id='searchbox'
                 />
                 <div className="icon-container">
-                    <SearchIcon />
+                    <SearchIcon sx={icon_style} />
                 </div>
             </Form>
         </div>
