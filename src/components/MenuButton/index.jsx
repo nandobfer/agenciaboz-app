@@ -14,7 +14,7 @@ export const MenuButton = ({ Icon, title, visible, active }) => {
 
     const active_style = {
         border: '1px solid menu_gray_color',
-        boxShadow: '4px 2px #888888',
+        boxShadow: '0 0 0 1px #888888',
         zIndex: '5'
     }
 

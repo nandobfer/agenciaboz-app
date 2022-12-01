@@ -15,6 +15,10 @@ export const SideBar = ({ }) => {
     const buttons = [
         { icon: WbSunnyIcon, title: 'Meu Dia' },
         { icon: StarBorderIcon, title: 'Importante' },
+        { icon: CalendarTodayIcon, title: 'Planejado' },
+        { icon: AccountCircleOutlinedIcon, title: 'Equipe' },
+        { icon: HomeOutlinedIcon, title: 'Tarefas' },
+        { icon: TimelineOutlinedIcon, title: 'Estatísticas' }
     ]
 
     const [visible, setVisible] = useState(false)
