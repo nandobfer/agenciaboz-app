@@ -9,16 +9,15 @@ import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import TimelineOutlinedIcon from '@mui/icons-material/TimelineOutlined';
 import { MenuButton } from '../MenuButton';
 import { useEffect, useState } from 'react';
-import zIndex from '@mui/material/styles/zIndex';
 
-export const SideBar = ({ }) => {
+export const SideBar = ({ current, setCurrent, navigate }) => {
     const buttons = [
-        { icon: WbSunnyIcon, title: 'Meu Dia' },
-        { icon: StarBorderIcon, title: 'Importante' },
-        { icon: CalendarTodayIcon, title: 'Planejado' },
-        { icon: AccountCircleOutlinedIcon, title: 'Equipe' },
-        { icon: HomeOutlinedIcon, title: 'Tarefas' },
-        { icon: TimelineOutlinedIcon, title: 'Estatísticas' }
+        { icon: WbSunnyIcon, title: 'Meu Dia', route:"/tarefas" },
+        { icon: StarBorderIcon, title: 'Importante', route:"" },
+        { icon: CalendarTodayIcon, title: 'Planejado', route:"" },
+        { icon: AccountCircleOutlinedIcon, title: 'Equipe', route:"/tarefas/usuarios" },
+        { icon: HomeOutlinedIcon, title: 'Tarefas', route:"" },
+        { icon: TimelineOutlinedIcon, title: 'Estatísticas', route:"" }
     ]
 
     const [visible, setVisible] = useState(false)
@@ -52,7 +51,7 @@ export const SideBar = ({ }) => {
             {
                 buttons.map(item => {
                     return (
-                        <MenuButton key={item.title} visible={visible} Icon={item.icon} title={item.title} />
+                        <MenuButton key={item.title} visible={visible} Icon={item.icon} title={item.title} route={item.route} navigate={navigate} current={current} setCurrent={setCurrent} />
                     )
                 })
             }

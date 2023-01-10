@@ -10,14 +10,14 @@ export const Login = () => {
     const [feedback, setFeedback] = useState('')
 
     const onFormSubmit = (values) => {
-        console.log(values)
+        setFeedback('Verificando')
 
         api.post('/login', { user: values.input_login, password: values.input_senha })
             .then((response) => {
                 if (response.data.error) {
                     setFeedback(response.data.error)
                 } else {
-                    navigate('/home', { state: { user: response.data } })
+                    navigate('/tarefas', { state: { user: response.data } })
                 }
             })
             .catch((error) => {

@@ -1,10 +1,17 @@
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom"
+import { api } from "../../api";
+import { Loading } from "../../components/Loading";
+import { SideBar } from "../../components/SideBar";
 import { Table } from "../../components/Table"
+import { Topbar } from "../../components/Topbar";
+import './style.scss';
 
 export const Users = () => {
 
-    const users = useLocation().state.users
-    console.log(users)
+    const [loading, setLoading] = useState(true)
+    const [loaded, setLoaded] = useState(false)
+    const [users, setUsers] = useState([])
 
     const formatCPF = (cpf) => {
         if (cpf === 'None') {
@@ -24,6 +31,18 @@ export const Users = () => {
         const year = date.getFullYear()
         return `${day}/${month}/${year}`
     }
+
+    useEffect(() => {
+        api.post('/usuarios', {})
+            .then((response) => {
+                if (response.data.error) alert(JSON.stringify(response.data.error, null, 2))
+                setUsers(response.data)
+                setLoading(false)
+            })
+            .catch((error) => {
+                alert(JSON.stringify(error, null, 2))
+            })
+    }, [loaded])
 
     const columns = [
         {
@@ -46,12 +65,14 @@ export const Users = () => {
     ]
 
     return (
-        <section>
-            <h1>Painel de Usuários</h1>
-            <Table
-                data={users}
-                columns={columns}
-            />
-        </section>
+        <div className="users-page">
+            <div className="main-container">
+                <Loading loading_state={loading} />
+                <Table
+                    data={users}
+                    columns={columns}
+                />
+            </div>
+        </div>
     )
 }

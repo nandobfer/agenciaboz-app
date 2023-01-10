@@ -1,0 +1,11 @@
+@import '/src/sass/colors';
+
+.users-page {
+    flex-direction: column;
+    width: 100%;
+
+    .main-container {
+        flex-direction: column;
+        width: 100%;
+    }
+}
