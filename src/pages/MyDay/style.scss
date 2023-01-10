@@ -1,2 +1,18 @@
 @import '/src/sass/colors';
 
+.MyDay-Component {
+    flex-direction: column;
+
+    .title {
+        margin: 2vw;
+        margin-bottom: 0;
+        gap: 1vw;
+        flex-direction: row;
+        align-items: center;
+        font-size: 1.8vw;;
+    }
+
+    .date {
+        margin: 1vw;
+    }
+}
