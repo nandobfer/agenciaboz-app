@@ -2,6 +2,7 @@
 
 .MyDay-Component {
     flex-direction: column;
+    width: 100%;
 
     .title {
         margin: 2vw;
@@ -14,5 +15,10 @@
 
     .date {
         margin: 1vw;
+    }
+
+    .main-container {
+        width: 100%;
+        padding-left: 5vw;
     }
 }

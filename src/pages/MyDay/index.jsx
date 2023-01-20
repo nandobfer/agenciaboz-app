@@ -1,6 +1,7 @@
 import './style.scss';
 import COLORS from '../../sass/_colors.scss'
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
+import { NewTask } from '../../components/NewTask';
 
 export const MyDay = () => {
 
@@ -19,6 +20,9 @@ export const MyDay = () => {
                 <p>Meu Dia</p>
             </div>
             <p className='date'>{date.toLocaleDateString('pt-br', { weekday: 'long', month: 'long', day: 'numeric' })}</p>
+            <div className="main-container">
+                <NewTask />
+            </div>
         </div>
     )
 }

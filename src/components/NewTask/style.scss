@@ -1,0 +1,24 @@
+@import '/src/sass/colors';
+
+.NewTask-Component {
+    border: red 1px solid;
+    margin: 1vw;
+    width: 100%;
+    height: 8vw;
+    background-color: white;
+    flex-direction: column;
+    padding: 1vw;
+
+    input {
+        border: none;
+        outline: none;
+    }
+
+    .top {
+        height: 65%;
+    }
+
+    .bottom {
+        height: 35%;
+    }
+}
