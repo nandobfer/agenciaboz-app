@@ -1,16 +1,11 @@
 @import '/src/sass/colors';
 
-.NewTask-Component {
+.Task-Component {
     width: 100%;
     height: 8vw;
     background-color: white;
     flex-direction: column;
     padding: 1vw;
-
-    input {
-        border: none;
-        outline: none;
-    }
 
     .top {
         height: 65%;

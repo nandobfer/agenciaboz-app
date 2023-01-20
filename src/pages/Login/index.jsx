@@ -2,10 +2,16 @@ import { useState } from 'react';
 import { Form, Input } from 'react-burgos';
 import { useNavigate } from 'react-router-dom';
 import { api } from '../../api';
+import { useCustomers } from '../../hooks/useCustomers';
+import { useTeam } from '../../hooks/useTeam';
+import { useUser } from '../../hooks/useUser';
 import './style.scss';
 
 export const Login = () => {
 
+    const user = useUser()
+    const team = useTeam()
+    const customers = useCustomers()
     const navigate = useNavigate();
     const [feedback, setFeedback] = useState('')
 
@@ -17,7 +23,10 @@ export const Login = () => {
                 if (response.data.error) {
                     setFeedback(response.data.error)
                 } else {
-                    navigate('/tarefas', { state: { user: response.data } })
+                    user.setValue(response.data.user)
+                    team.setValue(response.data.team)
+                    customers.setValue(response.data.customers)
+                    navigate('/tarefas')
                 }
             })
             .catch((error) => {

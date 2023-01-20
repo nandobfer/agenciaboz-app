@@ -18,7 +18,13 @@
     }
 
     .main-container {
-        width: 100%;
+        width: 98%;
         padding-left: 5vw;
+        flex-direction: column;
+
+        .customer-tasks {
+            flex-direction: column;
+            gap: 1vw;
+        }
     }
 }
