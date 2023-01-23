@@ -21,9 +21,14 @@ export const MyDay = () => {
     const [tasks, setTasks] = useState([])
     const [customers, setCustomers] = useState([])
 
-    const user = useUser().value
-    const team = useTeam().value
-    const _customers = useCustomers().value
+    const userContext = useUser()
+    const user = userContext.value
+
+    const teamContext = useTeam()
+    const team = teamContext.value
+
+    const customersContext = useCustomers()
+    const _customers = customersContext.value
 
     const icon_style = {
         width: '1.5vw',
@@ -38,24 +43,35 @@ export const MyDay = () => {
             alert()
         }
     }
-
     
     useEffect(() => {
-        api.post('/tasks', {user: user.id})
-        .then((response) => {
-            setTasks(response.data)
-            setLoading(false)
-        })
 
-    }, [loaded])
+        if (!user) {
+            userContext.setValue(JSON.parse(localStorage.getItem("user")))
+        }
+        if (!team) {
+            teamContext.setValue(JSON.parse(localStorage.getItem("team")))
+        }
+        if (!_customers) {
+            customersContext.setValue(JSON.parse(localStorage.getItem("customers")))
+        }
 
+        if (tasks.length == 0) {
+            api.post('/tasks', {user: user.id})
+            .then((response) => {
+                setTasks(response.data)
+                setLoading(false)
+                console.log('aaaa')
+            })
+        }
+        
+    })
+    
     useEffect(() => {
-        if (!loadedTasks) {
-            for(const task of tasks) {
-                const customer = _customers.filter(customer => customer.id == task.customer)[0]
-                if (!customers.includes(customer)) {
-                    setCustomers([...customers, customer])
-                }
+        for(const task of tasks) {
+            const customer = _customers.filter(customer => customer.id == task.customer)[0]
+            if (!customers.includes(customer)) {
+                setCustomers([...customers, customer])
             }
         }
 

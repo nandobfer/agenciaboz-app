@@ -5,7 +5,7 @@ import './style.scss';
 
 export const TeamChooser = ({ showModal, setShowModal, choose, list }) => {
 
-    const team = useTeam().value
+    const team = useTeam().value || JSON.parse(localStorage.getItem("team"))
 
     const modal_style = {
         display: 'flex',

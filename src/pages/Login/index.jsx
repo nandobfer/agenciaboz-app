@@ -26,6 +26,11 @@ export const Login = () => {
                     user.setValue(response.data.user)
                     team.setValue(response.data.team)
                     customers.setValue(response.data.customers)
+
+                    localStorage.setItem("user", JSON.stringify(response.data.user));
+                    localStorage.setItem("team", JSON.stringify(response.data.team));
+                    localStorage.setItem("customers", JSON.stringify(response.data.customers));
+
                     navigate('/tarefas')
                 }
             })
