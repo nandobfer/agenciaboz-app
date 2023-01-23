@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Form } from 'react-burgos';
 import { ReactComponent as PlusIcon } from '../../icons/plus.svg';
 import { TeamChooser } from '../TeamChooser';
+import { UserTag } from '../UserTag';
 import './style.scss';
 
 export const NewTask = () => {
@@ -31,27 +32,27 @@ export const NewTask = () => {
                 </Form>
                 <hr />
                 <div>
-                    <p>Responsável</p>
+                    <p>Responsável <PlusIcon onClick={() => setShowPlannerModal(true)} /></p>
                     {planners.map(planner => {
                         return (
                             <div key={planner.id} className="planner-container" onClick={() => removeUser(planner, setPlanners, planners)}>
-                                <p>{planner.name}</p>
+                                <UserTag user={planner} />
                             </div>
                         )
                     })}
-                    <PlusIcon onClick={() => setShowPlannerModal(true)} />
+                    
                 </div>
                 <hr />
                 <div>
-                    <p>Desenvolvedor</p>
+                    <p>Desenvolvedor <PlusIcon onClick={() => setShowWorkerModal(true)} /></p>
                     {workers.map(worker => {
                         return (
                             <div key={worker.id} className="worker-container" onClick={() => removeUser(worker, setWorkers, workers)}>
-                                <p>{worker.name}</p>
+                                <UserTag user={worker} />
                             </div>
                         )
                     })}
-                    <PlusIcon onClick={() => setShowWorkerModal(true)} />
+                    
                 </div>
             </div>
             <hr />

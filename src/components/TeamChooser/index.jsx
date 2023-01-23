@@ -1,5 +1,6 @@
 import { Dialog } from '@mui/material';
 import { useTeam } from '../../hooks/useTeam';
+import { UserTag } from '../UserTag';
 import './style.scss';
 
 export const TeamChooser = ({ showModal, setShowModal, choose, list }) => {
@@ -27,7 +28,7 @@ export const TeamChooser = ({ showModal, setShowModal, choose, list }) => {
                 {team.map(user => {
                     return (
                         <div key={user.id} className="member-container" onClick={() => selectUser(user)}>
-                            {user.name}
+                            <UserTag user={user} />
                         </div>
                     )
                 })}
