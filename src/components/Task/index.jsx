@@ -1,4 +1,5 @@
 import { useTeam } from '../../hooks/useTeam';
+import { UserTag } from '../UserTag';
 import './style.scss';
 
 export const Task = ({ task }) => {
@@ -14,7 +15,7 @@ export const Task = ({ task }) => {
                     <p>Responsável</p>
                     {task.planner.split(',').map(planner => {
                         return (
-                            <p>{team.filter(user => user.id == planner)[0].name}</p>
+                            <UserTag user={team.filter(user => user.id == planner)[0]} />
                         )
                     })}
                 </div>
@@ -23,7 +24,7 @@ export const Task = ({ task }) => {
                     <p>Desenvolvedor</p>
                     {task.worker.split(',').map(worker => {
                         return (
-                            <p>{team.filter(user => user.id == worker)[0].name}</p>
+                            <UserTag user={team.filter(user => user.id == worker)[0]} />
                         )
                     })}
                 </div>
