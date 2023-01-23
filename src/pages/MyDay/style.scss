@@ -22,9 +22,10 @@
         padding-left: 5vw;
         flex-direction: column;
 
-        .customer-tasks {
+        .customer-tasks, .completed-tasks {
             flex-direction: column;
             gap: 1vw;
         }
+
     }
 }

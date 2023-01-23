@@ -19,6 +19,7 @@ export const MyDay = () => {
     const [loaded, setLoaded] = useState(false)
     const [loadedTasks, setLoadedTasks] = useState(false)
     const [tasks, setTasks] = useState([])
+    const [completedTasks, setCompletedTasks] = useState([])
     const [customers, setCustomers] = useState([])
 
     const userContext = useUser()
@@ -59,9 +60,9 @@ export const MyDay = () => {
         if (tasks.length == 0) {
             api.post('/tasks', {user: user.id})
             .then((response) => {
-                setTasks(response.data)
+                setTasks(response.data.filter(task => !task.done))
+                setCompletedTasks(response.data.filter(task => task.done))
                 setLoading(false)
-                console.log('aaaa')
             })
         }
         
@@ -114,6 +115,14 @@ export const MyDay = () => {
                             </div>
                         )
                     })}
+                    <div className="completed-tasks">
+                        <h1>Completadas / <span>{completedTasks.length}</span></h1>
+                        {completedTasks.map(task => {
+                            return (
+                                <Task key={task.id} task={task} />
+                            )
+                        })}
+                    </div>
                 </div>
             </div>}
         </section>
