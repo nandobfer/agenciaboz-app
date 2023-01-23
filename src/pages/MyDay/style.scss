@@ -25,6 +25,11 @@
         .customer-tasks, .completed-tasks {
             flex-direction: column;
             gap: 1vw;
+
+            h1 > span {
+                font-size: 1vw;
+                font-weight: normal;
+            }
         }
 
     }

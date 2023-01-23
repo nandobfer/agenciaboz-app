@@ -39,12 +39,6 @@ export const MyDay = () => {
 
     const date = new Date()
 
-    const onKeyPress = (event) => {
-        if (event.key == 'Enter') {
-            alert()
-        }
-    }
-    
     useEffect(() => {
 
         if (!user) {
@@ -83,14 +77,6 @@ export const MyDay = () => {
 
     }, [customers])
 
-    useEffect(() => {
-        document.addEventListener("keydown", onKeyPress, false)
-    
-        return () => {
-          document.removeEventListener("keydown", onKeyPress, false)
-        }
-    }, [])
-    
     return (
         <section>
             <Loading loading_state={loading} />
@@ -106,7 +92,7 @@ export const MyDay = () => {
                         const c_tasks = tasks.filter(task => task.customer == customer.id)
                         return (
                             <div className="customer-tasks" key={customer.id}>
-                                <h1>{customer.company} / <span>{c_tasks.length}</span></h1>
+                                <h1>{customer.company} / <span>{c_tasks.length} elemento{c_tasks.length > 1 ? 's' : null}</span></h1>
                                 {c_tasks.map(task => {
                                     return (
                                         <Task key={task.id} task={task} />
@@ -116,7 +102,7 @@ export const MyDay = () => {
                         )
                     })}
                     <div className="completed-tasks">
-                        <h1>Completadas / <span>{completedTasks.length}</span></h1>
+                        <h1>Completadas / <span>{completedTasks.length} elemento{completedTasks.length > 1 ? 's' : null}</span></h1>
                         {completedTasks.map(task => {
                             return (
                                 <Task key={task.id} task={task} />
