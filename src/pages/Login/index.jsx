@@ -55,24 +55,26 @@ export const Login = () => {
         <div className='login-page'>
             <div className='main-container'>
                 <img src='boz-LogoBranco.png' alt='BOZ' />
-                <Form initialValues={inputs} onSubmit={values => onFormSubmit(values)}>
-                    <label htmlFor='input_login'>Usuário</label>
-                    <Input
-                        mask={(string) => mailMask(string)}
-                        id='input_login'
-                        placeholder='@agenciaboz.com.br'
-                        className='default-input'
-                    />
-                    <label htmlFor='input_senha'>Senha</label>
-                    <Input
-                        type='password'
-                        id='input_senha'
-                        placeholder='Senha'
-                        className='default-input'
-                    />
-                    <button className='default-button' type="submit">Entrar</button>
-                    <p>{feedback}</p>
-                </Form>
+                <div className="form-container">
+                    <Form initialValues={inputs} onSubmit={values => onFormSubmit(values)}>
+                        {/* <label htmlFor='input_login'>Usuário</label> */}
+                        <Input
+                            mask={(string) => mailMask(string)}
+                            id='input_login'
+                            placeholder='Nome ou e-mail'
+                            className='default-input'
+                        />
+                        {/* <label htmlFor='input_senha'>Senha</label> */}
+                        <Input
+                            type='password'
+                            id='input_senha'
+                            placeholder='Senha'
+                            className='default-input'
+                        />
+                        <button className='default-button' type="submit">Entrar</button>
+                        <p>{feedback}</p>
+                    </Form>
+                </div>
             </div>
         </div>
     )
