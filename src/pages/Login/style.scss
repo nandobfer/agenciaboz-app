@@ -8,19 +8,25 @@
     justify-content: center;
 
     #root {
-        display: flex;
         flex-direction: column;
     }
 
     .main-container {
         flex-direction: column;
         align-items: center;
+
+        .form-container {
+            flex-direction: column;
+            background-color: $white;
+            margin-top: 3vw;
+            width: 30vw;
+        }
     }
 
 
     img {
-        max-height: 30vh;
-        margin-top: 9vh;
+        width: 30vw;
+        margin-top: 4vw;
     }
 
     Form {
@@ -40,7 +46,7 @@
         height: 5vh;
         width: 20vw;
         padding-left: 1vw;
-        border-radius: 5vw;
+        border-radius: 0.2vw;
         border: none;
     }
 
@@ -49,12 +55,12 @@
     }
 
     button {
-        background-color: #004f4f;
+        background-color: $home-button-color;
         cursor: pointer;
         font-size: 3vh;
         margin-top: 6vh;
         margin-bottom: 3vh;
-        border-radius: 5vw;
+        border-radius: 0.2vw;
         height: 5vh;
         width: 7vw;
         border: none;
