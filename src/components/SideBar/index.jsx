@@ -41,13 +41,6 @@ export const SideBar = ({ current, setCurrent, navigate }) => {
                 <MenuIcon sx={icon_style} />
             </div>
 
-            {/* <MenuButton visible={visible} Icon={WbSunnyIcon} title='Meu Dia' />
-            <MenuButton visible={visible} Icon={StarBorderIcon} title='Importante' />
-            <MenuButton visible={visible} Icon={CalendarTodayIcon} title='Planejado' />
-            <MenuButton visible={visible} Icon={AccountCircleOutlinedIcon} title='Equipe' />
-            <MenuButton visible={visible} Icon={HomeOutlinedIcon} title='Tarefas' />
-            <MenuButton visible={visible} Icon={TimelineOutlinedIcon} title='Estatísticas' /> */}
-
             {
                 buttons.map(item => {
                     return (
