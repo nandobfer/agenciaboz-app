@@ -87,7 +87,7 @@ export const MyDay = () => {
                 </div>
                 <p className='date'>{date.toLocaleDateString('pt-br', { weekday: 'long', month: 'long', day: 'numeric' })}</p>
                 <div className="main-container">
-                    <NewTask />
+                    <NewTask tasks={tasks} setTasks={setTasks} />
                     {customers.map(customer => {
                         const c_tasks = tasks.filter(task => task.customer == customer.id)
                         return (
