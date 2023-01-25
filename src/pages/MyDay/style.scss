@@ -2,6 +2,7 @@
 
 .MyDay-Component {
     flex-direction: column;
+    overflow-y: scroll;
     width: 100%;
 
     .title {

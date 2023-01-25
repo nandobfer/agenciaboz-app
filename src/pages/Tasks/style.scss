@@ -2,6 +2,8 @@
 
 .Tasks-page {
     flex-direction: column;
+    overflow-y: hidden;
+    overflow-x: hidden;
     height: 100vh;
 
     .SideBar-wrapper {
