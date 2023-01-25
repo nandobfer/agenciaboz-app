@@ -1,5 +1,7 @@
 import { useTeam } from '../../hooks/useTeam';
 import { UserTag } from '../UserTag';
+import { ReactComponent as MediumPriorityIcon } from '../../icons/medium_priority.svg';
+import { ReactComponent as HighPriorityIcon } from '../../icons/high_priority.svg';
 import './style.scss';
 
 export const Task = ({ task }) => {
@@ -12,6 +14,10 @@ export const Task = ({ task }) => {
                 <div className="task-data">
                     <input type="radio" name="" id="teste" />
                     <p>{task.title}</p>
+                    { !task.priority ? null 
+                        : task.priority == 1 ? <MediumPriorityIcon /> 
+                        : <HighPriorityIcon />
+                    }
                     <p className="task-date">{date.toLocaleDateString('pt-BR', { weekday: 'long' }).split('-')[0]}, {date.toLocaleDateString()}</p>
                 </div>
                 <hr />

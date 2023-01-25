@@ -51,7 +51,7 @@ export const NewTask = ({ tasks, setTasks }) => {
                 worker: workers.map(worker => worker.id),
                 planner: planners.map(planner => planner.id),
                 date: startDate,
-                priority: 1,
+                priority: priority,
                 customer: customer.id,
                 briefing: 'link',
                 done: false
@@ -68,7 +68,7 @@ export const NewTask = ({ tasks, setTasks }) => {
                 }
             })
         }
-    }, [workers, planners, customer, startDate])
+    }, [workers, planners, customer, startDate, priority])
 
     useEffect(() => {
         document.addEventListener("keydown", onKeyPress, false)
@@ -117,7 +117,7 @@ export const NewTask = ({ tasks, setTasks }) => {
             <div className="bottom">
                     <DatePicker customInput={<DatePickerIcon />} calendarClassName='date-picker' selected={startDate} onChange={(date) => setStartDate(date)} />
                     <p>{startDate.toLocaleDateString("pt-BR", {year:"2-digit",month:"2-digit", day:"2-digit"})}</p>
-                    
+
                     { !priority ? <PriorityIcon onClick={() => setShowPriorityModal(true)} /> 
                         : priority == 1 ? <MediumPriorityIcon onClick={() => setShowPriorityModal(true)} /> 
                         : <HighPriorityIcon onClick={() => setShowPriorityModal(true)} />
