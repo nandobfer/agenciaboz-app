@@ -111,7 +111,7 @@ export const NewTask = ({ tasks, setTasks }) => {
             <hr className="h-hr"/>
             <div className="bottom">
                     <DatePicker customInput={<DatePickerIcon />} calendarClassName='date-picker' selected={startDate} onChange={(date) => setStartDate(date)} />
-                    <p>{startDate.getDate()}</p>
+                    <p>{startDate.toLocaleDateString("pt-BR", {year:"2-digit",month:"2-digit", day:"2-digit"})}</p>
                     <PlusIcon onClick={() => setShowCustomersModal(true)} />
                     {customer ? <UserTag customer={customer} /> : null}
             </div>
