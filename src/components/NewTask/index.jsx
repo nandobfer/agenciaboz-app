@@ -8,6 +8,7 @@ import { api } from '../../api';
 import { useUser } from '../../hooks/useUser';
 import { ReactComponent as PlusIcon } from '../../icons/plus.svg';
 import { ReactComponent as DatePickerIcon } from '../../icons/date.svg';
+import { ReactComponent as PriorityIcon } from '../../icons/priority.svg';
 import { CustomerChooser } from '../CustomerChooser';
 import { TeamChooser } from '../TeamChooser';
 import { UserTag } from '../UserTag';
@@ -108,6 +109,7 @@ export const NewTask = ({ tasks, setTasks }) => {
             <hr />
             <div className="bottom">
                     <DatePicker customInput={<DatePickerIcon />} calendarClassName='date-picker' selected={startDate} onChange={(date) => setStartDate(date)} />
+                    <p>{startDate.getDate()}</p>
                     <PlusIcon onClick={() => setShowCustomersModal(true)} />
                     <hr />
                     {customer ? <UserTag customer={customer} /> : null}
