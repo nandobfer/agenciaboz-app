@@ -11,8 +11,13 @@
     input {
         border: none;
         outline: none;
+
     }
 
+    input[type=radio]{
+        margin-right: 0.5vw;
+    }
+    
     .top {
         align-items: center;
         height: 65%;
@@ -30,6 +35,8 @@
     
     .bottom {
         height: 35%;
+        justify-content: flex-start;
+        align-items: center;
     }
 
     .date-picker {
@@ -55,9 +62,10 @@
     }
 
     .add-person{
+        flex: 0.15;
         justify-content: center;
         align-items: center;
-        flex: 0.15;
+
     }
 
 }
