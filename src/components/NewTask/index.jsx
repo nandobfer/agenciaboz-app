@@ -79,10 +79,12 @@ export const NewTask = ({ tasks, setTasks }) => {
             <TeamChooser showModal={showWorkerModal} setShowModal={setShowWorkerModal} choose={setWorkers} list={workers} />
             <CustomerChooser showModal={showCustomersModal} setShowModal={setShowCustomersModal} choose={setCustomer} />
             <div className="top">
-                <input type="radio" name="" id="teste" />
-                <input ref={titleRef} id="new_task" type="text" placeholder='Adicionar Tarefa' />
-                <hr />
-                <div>
+                <div className="add-task">
+                    <input type="radio" name="" id="teste" />
+                    <input ref={titleRef} id="new_task" type="text" placeholder='Adicionar uma tarefa'/>
+                </div>
+                <hr/>
+                <div className="add-person">
                     <p>Responsável <PlusIcon onClick={() => setShowPlannerModal(true)} /></p>
                     {planners.map(planner => {
                         return (
@@ -93,8 +95,8 @@ export const NewTask = ({ tasks, setTasks }) => {
                     })}
                     
                 </div>
-                <hr />
-                <div>
+                <hr/>
+                <div className="add-person">
                     <p>Desenvolvedor <PlusIcon onClick={() => setShowWorkerModal(true)} /></p>
                     {workers.map(worker => {
                         return (
@@ -106,12 +108,11 @@ export const NewTask = ({ tasks, setTasks }) => {
                     
                 </div>
             </div>
-            <hr />
+            <hr className="h-hr"/>
             <div className="bottom">
                     <DatePicker customInput={<DatePickerIcon />} calendarClassName='date-picker' selected={startDate} onChange={(date) => setStartDate(date)} />
                     <p>{startDate.getDate()}</p>
                     <PlusIcon onClick={() => setShowCustomersModal(true)} />
-                    <hr />
                     {customer ? <UserTag customer={customer} /> : null}
             </div>
         </div>
