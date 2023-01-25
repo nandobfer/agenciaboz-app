@@ -9,11 +9,14 @@ import { useUser } from '../../hooks/useUser';
 import { ReactComponent as PlusIcon } from '../../icons/plus.svg';
 import { ReactComponent as DatePickerIcon } from '../../icons/date.svg';
 import { ReactComponent as PriorityIcon } from '../../icons/priority.svg';
+import { ReactComponent as MediumPriorityIcon } from '../../icons/medium_priority.svg';
+import { ReactComponent as HighPriorityIcon } from '../../icons/high_priority.svg';
 import { CustomerChooser } from '../CustomerChooser';
 import { TeamChooser } from '../TeamChooser';
 import { UserTag } from '../UserTag';
 import DatePicker from "react-datepicker";
 import './style.scss';
+import { PriorityModal } from '../PriorityModal';
 
 export const NewTask = ({ tasks, setTasks }) => {
 
@@ -22,12 +25,14 @@ export const NewTask = ({ tasks, setTasks }) => {
     const titleRef = useRef(null)
 
     const [startDate, setStartDate] = useState(new Date())
+    const [showPriorityModal, setShowPriorityModal] = useState(false)
     const [showPlannerModal, setShowPlannerModal] = useState(false)
     const [showWorkerModal, setShowWorkerModal] = useState(false)
     const [showCustomersModal, setShowCustomersModal] = useState(false)
     const [planners, setPlanners] = useState([])
     const [workers, setWorkers] = useState([])
     const [customer, setCustomer] = useState(false)
+    const [priority, setPriority] = useState(0)
 
     const onSubmitNewTask = (values) => {
         alert(values.new_task)
@@ -112,6 +117,12 @@ export const NewTask = ({ tasks, setTasks }) => {
             <div className="bottom">
                     <DatePicker customInput={<DatePickerIcon />} calendarClassName='date-picker' selected={startDate} onChange={(date) => setStartDate(date)} />
                     <p>{startDate.toLocaleDateString("pt-BR", {year:"2-digit",month:"2-digit", day:"2-digit"})}</p>
+                    
+                    { !priority ? <PriorityIcon onClick={() => setShowPriorityModal(true)} /> 
+                        : priority == 1 ? <MediumPriorityIcon onClick={() => setShowPriorityModal(true)} /> 
+                        : <HighPriorityIcon onClick={() => setShowPriorityModal(true)} />
+                    }
+                    <PriorityModal show={showPriorityModal} setShow={setShowPriorityModal} setValue={setPriority} />
                     <PlusIcon onClick={() => setShowCustomersModal(true)} />
                     {customer ? <UserTag customer={customer} /> : null}
             </div>
