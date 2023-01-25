@@ -21,6 +21,7 @@ export const MyDay = () => {
     const [tasks, setTasks] = useState([])
     const [completedTasks, setCompletedTasks] = useState([])
     const [customers, setCustomers] = useState([])
+    const [newTask, setNewTask] = useState(false)
 
     const userContext = useUser()
     const user = userContext.value
@@ -77,6 +78,21 @@ export const MyDay = () => {
 
     }, [customers])
 
+    useEffect(() => {
+        if (newTask) {
+            api.post('/tasks', {user: user.id})
+
+            .then((response) => {
+                setTasks(response.data.filter(task => !task.done))
+                setCompletedTasks(response.data.filter(task => task.done))
+                setLoading(false)
+            })
+
+            setNewTask(false)
+        }
+
+    }, [newTask])
+
     return (
         <section>
             <Loading loading_state={loading} />
@@ -87,7 +103,7 @@ export const MyDay = () => {
                 </div>
                 <p className='date'>{date.toLocaleDateString('pt-br', { weekday: 'long', month: 'long', day: 'numeric' })}</p>
                 <div className="main-container">
-                    <NewTask tasks={tasks} setTasks={setTasks} />
+                    <NewTask setNewTask={setNewTask} setLoading={setLoading} />
                     {customers.map(customer => {
                         const c_tasks = tasks.filter(task => task.customer == customer.id)
                         return (

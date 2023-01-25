@@ -18,7 +18,7 @@ import DatePicker from "react-datepicker";
 import './style.scss';
 import { PriorityModal } from '../PriorityModal';
 
-export const NewTask = ({ tasks, setTasks }) => {
+export const NewTask = ({ setNewTask, setLoading }) => {
 
     const user = useUser().value
 
@@ -46,6 +46,11 @@ export const NewTask = ({ tasks, setTasks }) => {
         if (event.key == 'Enter') {
             const title = titleRef.current.value
 
+            if (!customer) {
+                setShowCustomersModal(true)
+                return false
+            }
+
             const task = {
                 title,
                 worker: workers.map(worker => worker.id),
@@ -57,14 +62,15 @@ export const NewTask = ({ tasks, setTasks }) => {
                 done: false
             }
             
+            setLoading(true)
             api.post('/new_task', task)
             .then(response => {
                 // console.log(response.data)
 
                 if (workers.filter(worker => worker.id == user.id).length || planners.filter(planner => planner.id == user.id).length) {
-                    // console.log('.')
-                    // console.log(tasks)
-                    // setTasks([...tasks, {...task, id: response.data.insertId}])
+                    setNewTask(true)
+                } else {
+                    setLoading(false)
                 }
             })
         }
