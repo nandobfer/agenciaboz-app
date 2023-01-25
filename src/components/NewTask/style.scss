@@ -1,4 +1,5 @@
 @import '/src/sass/colors';
+@import "~react-datepicker/dist/react-datepicker.css";
 
 .NewTask-Component {
     width: 100%;
@@ -23,5 +24,16 @@
 
     .bottom {
         height: 35%;
+    }
+
+    .date-picker {
+
+        .react-datepicker__month-container, 
+        .react-datepicker__header, 
+        .react-datepicker__header__dropdown, 
+        .react-datepicker__month, 
+        .react-datepicker__current-month {
+            display: block;
+        }
     }
 }
