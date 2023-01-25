@@ -7,9 +7,11 @@ import { Form } from 'react-burgos';
 import { api } from '../../api';
 import { useUser } from '../../hooks/useUser';
 import { ReactComponent as PlusIcon } from '../../icons/plus.svg';
+import { ReactComponent as DatePickerIcon } from '../../icons/date.svg';
 import { CustomerChooser } from '../CustomerChooser';
 import { TeamChooser } from '../TeamChooser';
 import { UserTag } from '../UserTag';
+import DatePicker from "react-datepicker";
 import './style.scss';
 
 export const NewTask = ({ tasks, setTasks }) => {
@@ -18,6 +20,7 @@ export const NewTask = ({ tasks, setTasks }) => {
 
     const titleRef = useRef(null)
 
+    const [startDate, setStartDate] = useState(new Date())
     const [showPlannerModal, setShowPlannerModal] = useState(false)
     const [showWorkerModal, setShowWorkerModal] = useState(false)
     const [showCustomersModal, setShowCustomersModal] = useState(false)
@@ -41,7 +44,7 @@ export const NewTask = ({ tasks, setTasks }) => {
                 title,
                 worker: workers.map(worker => worker.id),
                 planner: planners.map(planner => planner.id),
-                date: new Date(),
+                date: startDate,
                 priority: 1,
                 customer: customer.id,
                 briefing: 'link',
@@ -59,7 +62,7 @@ export const NewTask = ({ tasks, setTasks }) => {
                 }
             })
         }
-    }, [workers, planners, customer])
+    }, [workers, planners, customer, startDate])
 
     useEffect(() => {
         document.addEventListener("keydown", onKeyPress, false)
@@ -106,6 +109,7 @@ export const NewTask = ({ tasks, setTasks }) => {
             </div>
             <hr className="h-hr"/>
             <div className="bottom">
+                    <DatePicker customInput={<DatePickerIcon />} calendarClassName='date-picker' selected={startDate} onChange={(date) => setStartDate(date)} />
                     <PlusIcon onClick={() => setShowCustomersModal(true)} />
                     {customer ? <UserTag customer={customer} /> : null}
             </div>
