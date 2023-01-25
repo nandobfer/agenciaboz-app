@@ -6,22 +6,41 @@
     background-color: white;
     flex-direction: column;
     padding: 1vw;
-
+    
     input {
         border: none;
         outline: none;
     }
 
     .top {
+        align-items: center;
         height: 65%;
         
-        > div {
-            flex-direction: column;
-            justify-content: space-between;
+        hr {
+            height: 2.5vw;
         }
     }
 
+    .h-hr {
+        border-top: 1px solid black;
+        border-bottom: none;
+        margin: 0.5vw 0 1vw;
+    }
+    
     .bottom {
         height: 35%;
+    }
+
+    .add-task {
+        flex-direction: row;
+        flex: 0.7;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .add-person{
+        justify-content: center;
+        align-items: center;
+        flex: 0.15;
     }
 }
