@@ -8,10 +8,13 @@ export const Task = ({ task }) => {
     return (
         <div className='Task-Component' >
             <div className="top">
-                <input type="radio" name="" id="teste" />
-                <p>{task.title}</p>
+                <div className="task-data">
+                    <input type="radio" name="" id="teste" />
+                    <p>{task.title}</p>
+                    <p className="task-date">Qua, 25/01/2023</p>
+                </div>
                 <hr />
-                <div>
+                <div className="tasked-person">
                     <p>Responsável</p>
                     {task.planner.split(',').map(planner => {
                         return (
@@ -20,7 +23,7 @@ export const Task = ({ task }) => {
                     })}
                 </div>
                 <hr />
-                <div>
+                <div className="tasked-person">
                     <p>Desenvolvedor</p>
                     {task.worker.split(',').map(worker => {
                         return (
@@ -29,7 +32,7 @@ export const Task = ({ task }) => {
                     })}
                 </div>
             </div>
-            <hr />
+            <hr className="h-hr" />
             <div className="bottom">
 
             </div>
