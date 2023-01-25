@@ -28,6 +28,16 @@
             flex-direction: column;
             gap: 1vw;
 
+            .Collapsible {
+                flex-direction: column;
+
+                .Collapsible__contentInner{
+                    flex-direction: column;
+                    width: 100%;
+                    // transition: ease-in-out;
+                }
+            }
+
             h1 > span {
                 font-size: 1vw;
                 font-weight: normal;
