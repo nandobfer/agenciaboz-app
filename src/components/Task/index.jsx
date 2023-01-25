@@ -27,7 +27,7 @@ export const Task = ({ task }) => {
                     <p>Desenvolvedor</p>
                     {task.worker.split(',').map(worker => {
                         return (
-                            <UserTag user={team.filter(user => user.id == worker)[0]} />
+                            <UserTag key={worker.id} user={team.filter(user => user.id == worker)[0]} />
                         )
                     })}
                 </div>
