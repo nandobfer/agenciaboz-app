@@ -96,7 +96,7 @@ export const NewTask = ({ setNewTask, setLoading }) => {
                 </div>
                 <hr/>
                 <div className="add-person">
-                    <p>Responsável <PlusIcon onClick={() => setShowPlannerModal(true)} /></p>
+                    <p className="selector" onClick={() => setShowPlannerModal(true)}>Responsável <PlusIcon/></p>
                     {planners.map(planner => {
                         return (
                             <div key={planner.id} className="planner-container" onClick={() => removeUser(planner, setPlanners, planners)}>
@@ -108,7 +108,7 @@ export const NewTask = ({ setNewTask, setLoading }) => {
                 </div>
                 <hr/>
                 <div className="add-person">
-                    <p>Desenvolvedor <PlusIcon onClick={() => setShowWorkerModal(true)} /></p>
+                    <p className="selector" onClick={() => setShowWorkerModal(true)}>Desenvolvedor <PlusIcon/></p>
                     {workers.map(worker => {
                         return (
                             <div key={worker.id} className="worker-container" onClick={() => removeUser(worker, setWorkers, workers)}>
@@ -121,15 +121,15 @@ export const NewTask = ({ setNewTask, setLoading }) => {
             </div>
             <hr className="h-hr"/>
             <div className="bottom">
-                    <DatePicker customInput={<DatePickerIcon />} calendarClassName='date-picker' selected={startDate} onChange={(date) => setStartDate(date)} />
+                    <DatePicker className="selector" customInput={<DatePickerIcon />} calendarClassName='date-picker' selected={startDate} onChange={(date) => setStartDate(date)} />
                     <p>{startDate.toLocaleDateString("pt-BR", {year:"2-digit",month:"2-digit", day:"2-digit"})}</p>
 
-                    { !priority ? <PriorityIcon onClick={() => setShowPriorityModal(true)} /> 
+                    { !priority ? <PriorityIcon className="selector" onClick={() => setShowPriorityModal(true)} /> 
                         : priority == 1 ? <MediumPriorityIcon onClick={() => setShowPriorityModal(true)} /> 
                         : <HighPriorityIcon onClick={() => setShowPriorityModal(true)} />
                     }
                     <PriorityModal show={showPriorityModal} setShow={setShowPriorityModal} setValue={setPriority} />
-                    <PlusIcon onClick={() => setShowCustomersModal(true)} />
+                    <PlusIcon className="selector" onClick={() => setShowCustomersModal(true)} />
                     {customer ? <UserTag customer={customer} /> : null}
             </div>
         </div>

@@ -24,6 +24,7 @@
         
         hr {
             height: 2.5vw;
+            margin: 0 2vw;
         }
     }
 
@@ -54,18 +55,24 @@
         width: 2vw;
     }
 
+    .selector {
+        cursor: pointer;
+    }
+
     .add-task {
         flex-direction: row;
-        flex: 0.7;
+        flex: 1;
         justify-content: flex-start;
         align-items: center;
     }
 
     .add-person{
-        flex: 0.15;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
 
+        p {
+            margin: 0 0.5vw;
+        }
     }
 
 }
