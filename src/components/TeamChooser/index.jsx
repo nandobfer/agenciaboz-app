@@ -1,4 +1,5 @@
 import { Dialog } from '@mui/material';
+import ReactModal from 'react-modal';
 import { useTeam } from '../../hooks/useTeam';
 import { UserTag } from '../UserTag';
 import './style.scss';
@@ -7,11 +8,19 @@ export const TeamChooser = ({ showModal, setShowModal, choose, list }) => {
 
     const team = useTeam().value || JSON.parse(localStorage.getItem("team"))
 
-    const modal_style = {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
+    const customStyles = {
+        content: {
+            flexDirection: 'column',
+            top: '10vw',
+            left: 'auto',
+            right: '8vw',
+            bottom: 'auto',
+            gap: '1vw'
+        },
+        overlay: {
+            // backgroundColor: 'unset!important'
+            display: 'contents'
+        }
     }
 
     const selectUser = (user) => {
@@ -21,10 +30,10 @@ export const TeamChooser = ({ showModal, setShowModal, choose, list }) => {
     
     return (
         <div className='TeamChooser-Component' >
-            <Dialog keepMounted
-                open={showModal}
-                onClose={() => setShowModal(false)}
-                sx={modal_style}>
+            <ReactModal isOpen={showModal}
+                style={customStyles}
+                onRequestClose={() => setShowModal(false)}
+            >
                 {team.map(user => {
                     return (
                         <div key={user.id} className="member-container" onClick={() => selectUser(user)}>
@@ -32,7 +41,7 @@ export const TeamChooser = ({ showModal, setShowModal, choose, list }) => {
                         </div>
                     )
                 })}
-            </Dialog>
+            </ReactModal>
         </div>
     )
 }

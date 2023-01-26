@@ -46,8 +46,18 @@ export const NewTask = ({ setNewTask, setLoading }) => {
         if (event.key == 'Enter') {
             const title = titleRef.current.value
 
+            if (!title) {
+                titleRef.current.focus()
+                return false
+            }
+
             if (!customer) {
                 setShowCustomersModal(true)
+                return false
+            }
+
+            if (!planners.length) {
+                setShowPlannerModal(true)
                 return false
             }
 
@@ -96,7 +106,7 @@ export const NewTask = ({ setNewTask, setLoading }) => {
                 </div>
                 <hr/>
                 <div className="add-person">
-                    <p className="selector" onClick={() => setShowPlannerModal(true)}>Responsável <PlusIcon/></p>
+                    <p className="selector" onClick={() => setShowPlannerModal(!showPlannerModal)}>Responsável <PlusIcon/></p>
                     {planners.map(planner => {
                         return (
                             <div key={planner.id} className="planner-container" onClick={() => removeUser(planner, setPlanners, planners)}>
@@ -108,7 +118,7 @@ export const NewTask = ({ setNewTask, setLoading }) => {
                 </div>
                 <hr/>
                 <div className="add-person">
-                    <p className="selector" onClick={() => setShowWorkerModal(true)}>Desenvolvedor <PlusIcon/></p>
+                    <p className="selector" onClick={() => setShowWorkerModal(!showWorkerModal)}>Desenvolvedor <PlusIcon/></p>
                     {workers.map(worker => {
                         return (
                             <div key={worker.id} className="worker-container" onClick={() => removeUser(worker, setWorkers, workers)}>
@@ -129,8 +139,7 @@ export const NewTask = ({ setNewTask, setLoading }) => {
                         : <HighPriorityIcon onClick={() => setShowPriorityModal(true)} />
                     }
                     <PriorityModal show={showPriorityModal} setShow={setShowPriorityModal} setValue={setPriority} />
-                    <PlusIcon className="selector" onClick={() => setShowCustomersModal(true)} />
-                    {customer ? <UserTag customer={customer} /> : null}
+                    {customer ? <UserTag customer={customer} onClick={() => setShowCustomersModal(true)} /> : <PlusIcon className="selector" onClick={() => setShowCustomersModal(true)} />}
             </div>
         </div>
     )
