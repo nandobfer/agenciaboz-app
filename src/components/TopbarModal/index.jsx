@@ -27,7 +27,7 @@ export const TopbarModal = ({ show, setShow, menuList }) => {
                     return (
                         <div key={menu.text} className="menu-container" onClick={menu.onClick}>
                             <p>{menu.text}</p>
-                            <hr />
+                            { menuList.indexOf(menu) == (menuList.length - 1) ? null : <hr /> }
                         </div>
                     )
                 })}
