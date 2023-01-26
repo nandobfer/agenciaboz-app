@@ -55,7 +55,7 @@ export const Topbar = () => {
                 <NotificationsActiveIcon sx={notifications_icon_style} />
             </div>
             <div className="person-icon-container topbar-icon">
-                <PersonIcon sx={person_icon_style} onClick={() => {setShowAccountModal(true)}} />
+                <PersonIcon sx={person_icon_style} onClick={() => {setShowAccountModal(!showAccountModal)}} />
                 <TopbarModal show={showAccountModal} setShow={setShowAccountModal} menuList={account_menu} />
             </div>
         </div>

@@ -12,6 +12,10 @@ export const TopbarModal = ({ show, setShow, menuList }) => {
         bottom: 'auto',
         gap: '1vw'
         },
+        overlay: {
+            // backgroundColor: 'unset!important'
+            display: 'contents'
+        }
     }
 
     Modal.setAppElement('body')
