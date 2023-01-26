@@ -7,6 +7,19 @@
     background-color: white;
     flex-direction: column;
     padding: 1vw;
+
+    .checkbox-round {
+        width: 1vw;
+        height: 1vw;
+        background-color: $primary-color;
+        border-radius: 50%;
+        vertical-align: middle;
+        border: 1px solid $primary-color;
+        appearance: none;
+        -webkit-appearance: none;
+        outline: none;
+        pointer-events: none;
+    }
     
     input {
         border: none;

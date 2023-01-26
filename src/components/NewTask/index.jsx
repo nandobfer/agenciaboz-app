@@ -91,7 +91,7 @@ export const NewTask = ({ setNewTask, setLoading }) => {
             <CustomerChooser showModal={showCustomersModal} setShowModal={setShowCustomersModal} choose={setCustomer} />
             <div className="top">
                 <div className="add-task">
-                    <input type="radio" name="" id="teste" />
+                    <input className='checkbox-round' type="checkbox" name="" id="teste" />
                     <input ref={titleRef} id="new_task" type="text" placeholder='Adicionar uma tarefa'/>
                 </div>
                 <hr/>
