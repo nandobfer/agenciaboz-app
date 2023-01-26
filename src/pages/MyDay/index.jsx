@@ -113,6 +113,7 @@ export const MyDay = () => {
                                 <Collapsible trigger={<CustomerTitle customer={customer} tasks={c_tasks} />}
                                     triggerWhenOpen={<CustomerTitle customer={customer} tasks={c_tasks} open={true} />}
                                     triggerStyle={{fontSize: '1.7vw', fontWeight: 'bold'}}
+                                    open={true}
                                 >
 
                                 {c_tasks.map(task => {
