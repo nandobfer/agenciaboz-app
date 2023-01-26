@@ -125,8 +125,9 @@ export const MyDay = () => {
                         )
                     })}
                     <div className="completed-tasks">
-                        <Collapsible trigger={<h4>Completadas / <span>{completedTasks.length} elemento{completedTasks.length > 1 ? 's' : null}</span></h4>}
+                        <Collapsible trigger={<CustomerTitle tasks={completedTasks} />}
                             triggerStyle={{fontSize: '1.7vw', fontWeight: 'bold'}}
+                            triggerWhenOpen={<CustomerTitle tasks={completedTasks} open={true} />}
                         >
                             
                             {completedTasks.map(task => {
