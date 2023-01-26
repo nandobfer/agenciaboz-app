@@ -21,7 +21,7 @@ export const Task = ({ task, setNewTask }) => {
     }
     
     return (
-        <div className='Task-Component' >
+        <div className={`Task-Component ${task.finished ? 'disabled' : ''}`} >
             <div className="top">
                 <div className="task-data">
                     <input type="checkbox" className='checkbox-round' name="" id="teste" defaultChecked={done} onChange={onDoneChange} />
