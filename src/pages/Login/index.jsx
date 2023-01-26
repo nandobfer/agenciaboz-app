@@ -75,6 +75,8 @@ export const Login = () => {
                         <p>{feedback}</p>
                     </Form>
                 </div>
+                <hr />
+                <button className='default-button' type="submit" onClick={() => navigate('/cadastro')}>Criar nova conta</button>
             </div>
         </div>
     )

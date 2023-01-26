@@ -4,12 +4,21 @@ import { useUserType } from '../../hooks/useUserType';
 import './style.scss';
 import { api } from '../../api';
 import { useUserRole } from '../../hooks/useUserRole';
+import { useNavigate } from 'react-router-dom';
+import { useUser } from '../../hooks/useUser';
+import { useTeam } from '../../hooks/useTeam';
+import { useCustomers } from '../../hooks/useCustomers';
 
 export const Signup = () => {
 
     const user_types = useUserType()
 
     const roles = useUserRole()
+
+    const navigate = useNavigate()
+    const user = useUser()
+    const team = useTeam()
+    const customers = useCustomers()
 
     // EXEMPLO DE HOOK
     // const cargos = useCargos()
@@ -21,6 +30,7 @@ export const Signup = () => {
         cpf: '',
         birthday: '',
         role: '',
+        password: ''
     }
 
     const onFormSubmit = (values) => {
@@ -33,7 +43,29 @@ export const Signup = () => {
         api.post('/cadastrar', data)
             .then(response => {
                 const data = response.data
-                alert(JSON.stringify(data, null, 2))
+                if (data.error) {
+                    alert(data.error)
+                } else {
+                    api.post('/login', { user: values.user, password: values.password })
+                    .then((response) => {
+                        if (response.data.error) {
+                            setFeedback(response.data.error)
+                        } else {
+                            user.setValue(response.data.user)
+                            team.setValue(response.data.team)
+                            customers.setValue(response.data.customers)
+
+                            localStorage.setItem("user", JSON.stringify(response.data.user));
+                            localStorage.setItem("team", JSON.stringify(response.data.team));
+                            localStorage.setItem("customers", JSON.stringify(response.data.customers));
+
+                            navigate('/tarefas')
+                        }
+                    })
+                    .catch((error) => {
+                        alert(error)
+                    })
+                }
             })
             .catch(error => {
                 alert(error)
@@ -125,8 +157,8 @@ export const Signup = () => {
                         })}
                     </Field>
                 </div>
+                <button type='submit'>Cadastrar</button>
             </Form>
-            <button type='submit'>Cadastrar</button>
         </div>
     )
 }
