@@ -111,6 +111,7 @@ export const MyDay = () => {
                         return (
                             <div className="customer-tasks" key={customer.id}>
                                 <Collapsible trigger={<CustomerTitle customer={customer} tasks={c_tasks} />}
+                                    triggerWhenOpen={<CustomerTitle customer={customer} tasks={c_tasks} open={true} />}
                                     triggerStyle={{fontSize: '1.7vw', fontWeight: 'bold'}}
                                 >
 
