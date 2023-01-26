@@ -110,7 +110,7 @@ export const MyDay = () => {
                         return (
                             <div className="customer-tasks" key={customer.id}>
                                 <Collapsible trigger={`${customer.company} / `}
-                                    triggerSibling={`${c_tasks.length} elemento${c_tasks.length > 1 ? 's' : null}`}
+                                    triggerSibling={`${c_tasks.length} elemento${c_tasks.length > 1 ? 's' : ''}`}
                                     triggerStyle={{fontSize: '1.7vw', fontWeight: 'bold'}}
                                 >
 
