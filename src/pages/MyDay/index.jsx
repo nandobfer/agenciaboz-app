@@ -13,6 +13,8 @@ import { useTeam } from '../../hooks/useTeam';
 import { useCustomers } from '../../hooks/useCustomers';
 import { Dialog } from '@mui/material';
 import Collapsible from 'react-collapsible';
+import { CustomerTitle } from '../../components/CustomerTitle';
+
 
 export const MyDay = () => {
 
@@ -108,8 +110,7 @@ export const MyDay = () => {
                         const c_tasks = tasks.filter(task => task.customer == customer.id)
                         return (
                             <div className="customer-tasks" key={customer.id}>
-                                <Collapsible trigger={`${customer.company} / `}
-                                    triggerSibling={`${c_tasks.length} elemento${c_tasks.length > 1 ? 's' : ''}`}
+                                <Collapsible trigger={<CustomerTitle customer={customer} tasks={c_tasks} />}
                                     triggerStyle={{fontSize: '1.7vw', fontWeight: 'bold'}}
                                 >
 
