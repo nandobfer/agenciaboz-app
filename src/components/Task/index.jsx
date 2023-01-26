@@ -3,16 +3,28 @@ import { UserTag } from '../UserTag';
 import { ReactComponent as MediumPriorityIcon } from '../../icons/medium_priority.svg';
 import { ReactComponent as HighPriorityIcon } from '../../icons/high_priority.svg';
 import './style.scss';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { api } from '../../api';
 
-export const Task = ({ task }) => {
+export const Task = ({ task, setNewTask }) => {
     const team = useTeam().value
     const date = new Date(task.date)
+    const [done, setDone] = useState(task.done)
+
+    const onDoneChange = () => {
+        task.done = !task.done
+        api.post('/tasks/done', { done: task.done, id: task.id })
+        .then(response => {
+        })
+        setNewTask(true)
+    }
     
     return (
         <div className='Task-Component' >
             <div className="top">
                 <div className="task-data">
-                    <input type="radio" name="" id="teste" />
+                    <input type="checkbox" className='checkbox-round' name="" id="teste" defaultChecked={done} onChange={onDoneChange} />
                     <p>{task.title}</p>
                     { !task.priority ? null 
                         : task.priority == 1 ? <MediumPriorityIcon /> 

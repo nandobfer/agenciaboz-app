@@ -56,8 +56,8 @@ export const MyDay = () => {
         if (tasks.length == 0) {
             api.post('/tasks', {user: user.id})
             .then((response) => {
-                setTasks(response.data.filter(task => !task.done))
-                setCompletedTasks(response.data.filter(task => task.done))
+                setTasks(response.data.filter(task => !task.finished))
+                setCompletedTasks(response.data.filter(task => task.finished))
                 setLoading(false)
             })
         }
@@ -82,10 +82,9 @@ export const MyDay = () => {
     useEffect(() => {
         if (newTask) {
             api.post('/tasks', {user: user.id})
-
             .then((response) => {
-                setTasks(response.data.filter(task => !task.done))
-                setCompletedTasks(response.data.filter(task => task.done))
+                setTasks(response.data.filter(task => !task.finished))
+                setCompletedTasks(response.data.filter(task => task.finished))
                 setLoading(false)
             })
 
@@ -116,7 +115,7 @@ export const MyDay = () => {
 
                                 {c_tasks.map(task => {
                                     return (
-                                        <Task key={task.id} task={task} />
+                                        <Task key={task.id} task={task} setNewTask={setNewTask} />
                                     )
                                 })}
                                 </Collapsible>

@@ -37,6 +37,23 @@
         justify-content: flex-start;
         align-items: center;
 
+        .checkbox-round {
+            width: 1vw;
+            height: 1vw;
+            background-color: white;
+            border-radius: 50%;
+            vertical-align: middle;
+            border: 1px solid $primary-color;
+            appearance: none;
+            -webkit-appearance: none;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .checkbox-round:checked {
+            background-color: $primary-color;
+        }
+
         // Provisório, arrumar depois:
         .task-date {
             font-size: 1vw;
