@@ -40,5 +40,12 @@
 
         }
 
+        .completed-tasks {
+            h4 > span {
+                font-size: 1vw;
+                font-weight: normal;
+            }
+        }
+
     }
 }
