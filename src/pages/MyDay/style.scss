@@ -23,8 +23,9 @@
         width: 98%;
         padding-left: 5vw;
         flex-direction: column;
-
-        .customer-tasks, .completed-tasks {
+        gap: 1.5vw;
+        
+        .customer-tasks, .completed-tasks, .Collapsible__contentInner {
             flex-direction: column;
             gap: 1vw;
 

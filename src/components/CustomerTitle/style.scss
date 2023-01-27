@@ -1,6 +1,10 @@
 @import '/src/sass/colors';
 
 .CustomerTitle-Component {
+    align-items: center;
+    cursor: pointer;
+    width: max-content;
+
     h1 > span {
         font-size: 1vw;
         font-weight: normal;
