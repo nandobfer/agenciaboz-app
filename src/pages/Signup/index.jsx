@@ -118,15 +118,15 @@ export const Signup = () => {
             <Form initialValues={inputs} onSubmit={values => onFormSubmit(values)}>
                 <div className="input-container">
                     <label htmlFor="name">Nome</label>
-                    <Input id="name" type="text" />
+                    <Input id="name" type="text" required />
                 </div>
                 <div className="input-container">
                     <label htmlFor="user">Usuário</label>
-                    <Input id="user" type="text" />
+                    <Input id="user" type="text" required />
                 </div>
                 <div className="input-container">
                     <label htmlFor="password">Senha</label>
-                    <Input id="password" type="text" />
+                    <Input id="password" type="text" required />
                 </div>
                 <div className="input-container">
                     <label htmlFor="type">Tipo</label>
@@ -140,11 +140,11 @@ export const Signup = () => {
                 </div>
                 <div className="input-container">
                     <label htmlFor="cpf">CPF</label>
-                    <Input mask={cpf_mask} id="cpf" type="text" />
+                    <Input mask={cpf_mask} id="cpf" type="text" required />
                 </div>
                 <div className="input-container">
                     <label htmlFor="birthday">Data de nascimento</label>
-                    <Input mask={dateMask} id="birthday" type="text" />
+                    <Input mask={dateMask} id="birthday" type="text" required />
                 </div>
                 <div className="input-container">
                     <label htmlFor="role">Cargo</label>
@@ -157,6 +157,7 @@ export const Signup = () => {
                         })}
                     </Field>
                 </div>
+                <button onClick={() => navigate(-1)}>Voltar</button>
                 <button type='submit'>Cadastrar</button>
             </Form>
         </div>
