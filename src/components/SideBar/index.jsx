@@ -7,6 +7,7 @@ import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import TimelineOutlinedIcon from '@mui/icons-material/TimelineOutlined';
+import DoneAllIcon from '@mui/icons-material/DoneAll';
 import { MenuButton } from '../MenuButton';
 import { useEffect, useState } from 'react';
 
@@ -17,7 +18,8 @@ export const SideBar = ({ current, setCurrent, navigate }) => {
         { icon: CalendarTodayIcon, title: 'Planejado', route:"" },
         { icon: AccountCircleOutlinedIcon, title: 'Equipe', route:"/tarefas/usuarios" },
         { icon: HomeOutlinedIcon, title: 'Tarefas', route:"" },
-        { icon: TimelineOutlinedIcon, title: 'Estatísticas', route:"" }
+        { icon: TimelineOutlinedIcon, title: 'Estatísticas', route:"" },
+        { icon: DoneAllIcon, title: 'Revisão', route:"/tarefas/revisao" }
     ]
 
     const [visible, setVisible] = useState(false)

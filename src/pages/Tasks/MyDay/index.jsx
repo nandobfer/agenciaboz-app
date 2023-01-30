@@ -1,19 +1,19 @@
 import './style.scss';
-import COLORS from '../../sass/_colors.scss'
+import COLORS from '../../../sass/_colors.scss'
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
-import { NewTask } from '../../components/NewTask';
-import { api } from '../../api';
+import { NewTask } from '../../../components/NewTask';
+import { api } from '../../../api';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Task } from '../../components/Task';
-import { useUser } from '../../hooks/useUser';
-import { Loading } from '../../components/Loading';
-import { useTeam } from '../../hooks/useTeam';
-import { useCustomers } from '../../hooks/useCustomers';
+import { Task } from '../../../components/Task';
+import { useUser } from '../../../hooks/useUser';
+import { Loading } from '../../../components/Loading';
+import { useTeam } from '../../../hooks/useTeam';
+import { useCustomers } from '../../../hooks/useCustomers';
 import { Dialog } from '@mui/material';
 import Collapsible from 'react-collapsible';
-import { CustomerTitle } from '../../components/CustomerTitle';
+import { CustomerTitle } from '../../../components/CustomerTitle';
 
 
 export const MyDay = () => {
@@ -98,7 +98,7 @@ export const MyDay = () => {
     return (
         <section>
             <Loading loading_state={loading} />
-            {loading ? null : <div className='MyDay-Component' >
+            {loading ? null : <div className='MyDay-Page' >
                 <div className="title">
                     <WbSunnyIcon sx={icon_style} />
                     <p>Meu Dia</p>

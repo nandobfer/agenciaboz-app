@@ -1,0 +1,45 @@
+@import '/src/sass/colors';
+
+.MyDay-Page {
+    flex-direction: column;
+    overflow-y: scroll;
+    width: 100%;
+    height: 90%;
+
+    .title {
+        margin: 2vw;
+        margin-bottom: 0;
+        gap: 1vw;
+        flex-direction: row;
+        align-items: center;
+        font-size: 1.8vw;;
+    }
+
+    .date {
+        margin: 1vw;
+    }
+
+    .main-container {
+        width: 98%;
+        padding-left: 5vw;
+        flex-direction: column;
+        gap: 1.5vw;
+        
+        .customer-tasks, .completed-tasks, .Collapsible__contentInner {
+            flex-direction: column;
+            gap: 1vw;
+
+            .Collapsible {
+                flex-direction: column;
+
+                .Collapsible__contentInner{
+                    flex-direction: column;
+                    width: 100%;
+                    // transition: ease-in-out;
+                }
+            }
+
+        }
+
+    }
+}
