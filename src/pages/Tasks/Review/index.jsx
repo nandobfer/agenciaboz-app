@@ -83,7 +83,7 @@ export const Review = () => {
 
     useEffect(() => {
         if (newTask) {
-            api.post('/tasks', {user: user.id})
+            api.post('/tasks', {user: user.id, review: true})
             .then((response) => {
                 setTasks(response.data.filter(task => !task.finished))
                 setCompletedTasks(response.data.filter(task => task.finished))

@@ -15,11 +15,11 @@ export const SideBar = ({ current, setCurrent, navigate }) => {
     const buttons = [
         { icon: WbSunnyIcon, title: 'Meu Dia', route:"/tarefas" },
         { icon: StarBorderIcon, title: 'Importante', route:"" },
+        { icon: DoneAllIcon, title: 'Revisão', route:"/tarefas/revisao" },
         { icon: CalendarTodayIcon, title: 'Planejado', route:"" },
         { icon: AccountCircleOutlinedIcon, title: 'Equipe', route:"/tarefas/usuarios" },
         { icon: HomeOutlinedIcon, title: 'Tarefas', route:"" },
         { icon: TimelineOutlinedIcon, title: 'Estatísticas', route:"" },
-        { icon: DoneAllIcon, title: 'Revisão', route:"/tarefas/revisao" }
     ]
 
     const [visible, setVisible] = useState(false)
