@@ -14,7 +14,7 @@ import { useEffect, useState } from 'react';
 export const SideBar = ({ current, setCurrent, navigate }) => {
     const buttons = [
         { icon: WbSunnyIcon, title: 'Meu Dia', route:"/tarefas" },
-        { icon: StarBorderIcon, title: 'Importante', route:"" },
+        { icon: StarBorderIcon, title: 'Importante', route:"/tarefas/importante" },
         { icon: DoneAllIcon, title: 'Revisão', route:"/tarefas/revisao" },
         { icon: CalendarTodayIcon, title: 'Planejado', route:"" },
         { icon: AccountCircleOutlinedIcon, title: 'Equipe', route:"/tarefas/usuarios" },

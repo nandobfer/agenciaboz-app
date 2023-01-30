@@ -6,6 +6,7 @@ import { MyDay } from './MyDay';
 import { Users } from '../Users';
 import './style.scss';
 import { Review } from './Review';
+import { Important } from './Important';
 
 export const Tasks = () => {
     const navigate = useNavigate();
@@ -20,6 +21,7 @@ export const Tasks = () => {
                         <Routes>
                             <Route index element={<MyDay />} />
                             <Route path="/revisao" element={<Review />} />
+                            <Route path="/importante" element={<Important />} />
                             <Route path="/usuarios" element={<Users />} />
                         </Routes>
                 </div>

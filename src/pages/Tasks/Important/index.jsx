@@ -1,4 +1,3 @@
-import './style.scss';
 import COLORS from '../../../sass/_colors.scss'
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import { NewTask } from '../../../components/NewTask';
@@ -16,7 +15,7 @@ import Collapsible from 'react-collapsible';
 import { CustomerTitle } from '../../../components/CustomerTitle';
 
 
-export const MyDay = () => {
+export const Important = () => {
 
     const [loading, setLoading] = useState(true)
     const [loaded, setLoaded] = useState(false)
@@ -56,7 +55,7 @@ export const MyDay = () => {
         }
 
         if (tasks.length == 0) {
-            api.post('/tasks', {user: user.id, today: true})
+            api.post('/tasks', {user: user.id, important: true})
             .then((response) => {
                 setTasks(response.data.filter(task => !task.finished))
                 setCompletedTasks(response.data.filter(task => task.finished))
@@ -83,7 +82,7 @@ export const MyDay = () => {
 
     useEffect(() => {
         if (newTask) {
-            api.post('/tasks', {user: user.id, today: true})
+            api.post('/tasks', {user: user.id, important: true})
             .then((response) => {
                 setTasks(response.data.filter(task => !task.finished))
                 setCompletedTasks(response.data.filter(task => task.finished))
@@ -98,7 +97,7 @@ export const MyDay = () => {
     return (
         <section>
             <Loading loading_state={loading} />
-            {loading ? null : <div className='MyDay-Page' >
+            {loading ? null : <div className='Review-Page' >
                 <div className="title">
                     <WbSunnyIcon sx={icon_style} />
                     <p>Meu Dia</p>
