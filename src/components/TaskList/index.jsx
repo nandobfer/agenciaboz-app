@@ -43,8 +43,8 @@ export const TaskList = ({ title, variation }) => {
         setLoading(true)
         api.post('/tasks', {user: user.id, ...variation})
         .then((response) => {
-            setTasks(response.data.filter(task => !task.finished))
-            setCompletedTasks(response.data.filter(task => task.finished))
+            setTasks(response.data.empty ? [] : response.data.filter(task => !task.finished))
+            setCompletedTasks(response.data.empty ? [] : response.data.filter(task => task.finished))
             setLoading(false)
         })
     }, [user])
