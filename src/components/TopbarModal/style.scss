@@ -4,6 +4,15 @@
 
 }
 
-.menu-container {
+.menu-wrapper {
     flex-direction: column;
+    gap: 1vw;
+
+    .menu-container {
+        cursor: pointer;
+    }
+
+    .menu-container:hover {
+        color: $primary-color;
+    }
 }

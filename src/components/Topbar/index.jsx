@@ -32,6 +32,10 @@ export const Topbar = () => {
 
     const account_menu = [
         {
+            text: user.value.name,
+            onClick: () => alert(JSON.stringify(user.value, null, 4))
+        },
+        {
             text: 'Sair',
             onClick: () => logout()
         }
