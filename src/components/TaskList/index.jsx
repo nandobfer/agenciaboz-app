@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import Collapsible from 'react-collapsible';
 import { api } from '../../api';
 import { useCustomers } from '../../hooks/useCustomers';
@@ -12,7 +11,7 @@ import { Task } from '../Task';
 import './style.scss';
 import { Loading } from '../Loading';
 
-export const TaskList = ({ title, variation }) => {
+export const TaskList = ({ title, variation, icon }) => {
     const date = new Date()
 
     const tasksContext = useTasks()
@@ -85,7 +84,7 @@ export const TaskList = ({ title, variation }) => {
             : 
             <section>
                 <div className="title">
-                    <WbSunnyIcon sx={icon_style} />
+                    {icon}
                     <p>{title}</p>
                 </div>
                 <p className='date'>{date.toLocaleDateString('pt-br', { weekday: 'long', month: 'long', day: 'numeric' })}</p>
