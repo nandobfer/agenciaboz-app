@@ -11,8 +11,8 @@ export const Logo = () => {
                     <path d="M4.90778 9.91978C4.37742 10.1306 3.87064 10.4007 3.39603 10.7199V0.00934601H0.00228752V16.5243C0.000143203 16.72 0.000857977 16.9179 0.00228752 17.1165V18.1094C-0.00628976 19.0554 -0.00914885 19.9364 0.350382 20.7928C1.1788 22.7888 2.91142 24.5161 4.9235 25.3227C10.2979 27.5678 16.6644 23.6026 16.59 17.5931C16.5586 11.5655 10.3572 7.71008 4.90778 9.91978ZM4.80271 21.2737C2.96002 19.3861 2.96002 15.8636 4.80271 13.9767C7.93485 10.673 12.9518 13.1903 12.8904 17.6256C12.9526 22.0464 7.92341 24.5803 4.80271 21.2737Z" fill="white" />
                 </g>
                 <defs>
-                    <filter id="filter0_d_25_1153" x="0" y="0.00934601" width="52" height="27.9813" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <filter id="filter0_d_25_1153" x="0" y="0.00934601" width="52" height="27.9813" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                        <feFlood floodOpacity="0" result="BackgroundImageFix" />
                         <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
                         <feOffset dx="2" dy="2" />
                         <feComposite in2="hardAlpha" operator="out" />
