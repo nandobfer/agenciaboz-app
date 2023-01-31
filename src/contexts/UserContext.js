@@ -6,7 +6,8 @@ export default UserContext;
 
 
 export const UserProvider = ({children}) => {
-    const [value, setValue] = useState(false)
+    const user = JSON.parse(localStorage.getItem("user"))
+    const [value, setValue] = useState(user || false)
 
     return (
         <UserContext.Provider value={{value, setValue}}>

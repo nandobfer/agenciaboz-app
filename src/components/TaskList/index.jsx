@@ -19,7 +19,7 @@ export const TaskList = ({ title, variation }) => {
     const tasks = tasksContext.value
     const setTasks = tasksContext.setValue
 
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(false)
     const [newTask, setNewTask] = useState(false)
     const [customers, setCustomers] = useState([])
     const [completedTasks, setCompletedTasks] = useState([])
@@ -40,7 +40,7 @@ export const TaskList = ({ title, variation }) => {
     }
 
     useEffect(() => {
-        console.log('teste')
+        setLoading(true)
         api.post('/tasks', {user: user.id, ...variation})
         .then((response) => {
             setTasks(response.data.filter(task => !task.finished))
@@ -65,7 +65,6 @@ export const TaskList = ({ title, variation }) => {
     }, [customers])
 
     useEffect(() => {
-        console.log({teste: 'oi', newTask})
         if (newTask) {
             api.post('/tasks', {user: user.id, ...variation})
             .then((response) => {

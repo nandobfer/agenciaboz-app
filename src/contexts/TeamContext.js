@@ -6,7 +6,8 @@ export default TeamContext;
 
 
 export const TeamProvider = ({children}) => {
-    const [value, setValue] = useState(false)
+    const team = JSON.parse(localStorage.getItem("team"))
+    const [value, setValue] = useState(team || false)
 
     return (
         <TeamContext.Provider value={{value, setValue}}>
