@@ -2,12 +2,15 @@ import { useTeam } from '../../hooks/useTeam';
 import { UserTag } from '../UserTag';
 import { ReactComponent as MediumPriorityIcon } from '../../icons/medium_priority.svg';
 import { ReactComponent as HighPriorityIcon } from '../../icons/high_priority.svg';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import './style.scss';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { api } from '../../api';
+import COLORS from '../../sass/_colors.scss'
 
-export const Task = ({ task, setNewTask }) => {
+export const Task = ({ task, setNewTask, review }) => {
     const team = useTeam().value
     const date = new Date(task.date)
     const [done, setDone] = useState(task.done)
@@ -19,11 +22,29 @@ export const Task = ({ task, setNewTask }) => {
         })
         setNewTask(true)
     }
+
+    const setFinished = (finished) => {
+        api.post('/tasks/finished', { finished: finished, id: task.id })
+        .then(response => {
+        })
+        setNewTask(true)
+    }
+
+    const check_icon = {
+        cursor: 'pointer',
+        color: COLORS.primary
+    }
     
     return (
         <div className={`Task-Component ${task.finished ? 'disabled' : ''}`} >
             <div className="top">
                 <div className="task-data">
+                    { review ? 
+                        task.finished ? 
+                            <CheckCircleIcon sx={check_icon} onClick={() => setFinished(false)} /> 
+                            : <CheckCircleOutlineIcon sx={check_icon} onClick={() => setFinished(true)} />
+                        : null
+                    }
                     <input type="checkbox" className='checkbox-round' name="" id="teste" defaultChecked={done} onChange={onDoneChange} />
                     <p>{task.title}</p>
                     { !task.priority ? null 

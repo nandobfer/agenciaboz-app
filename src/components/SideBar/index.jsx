@@ -27,7 +27,7 @@ export const SideBar = ({ current, setCurrent, navigate }) => {
     const icon_style = {
         width: '1.5vw',
         height: '1.5vw',
-        color: COLORS.menu_gray_color
+        color: COLORS.menu_gray
     }
 
     const toggleMenu = () => {

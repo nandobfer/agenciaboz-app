@@ -9,10 +9,12 @@ import { useEffect, useState } from 'react';
 import { TopbarModal } from '../TopbarModal';
 import { useUser } from '../../hooks/useUser';
 import { useNavigate } from 'react-router-dom';
+import { useLogout } from '../../hooks/useLogout';
 
 export const Topbar = () => {
 
     const user = useUser()
+    const logout = useLogout()
 
     const [showAccountModal, setShowAccountModal] = useState(false)
 
@@ -30,8 +32,12 @@ export const Topbar = () => {
 
     const account_menu = [
         {
+            text: user.value.name,
+            onClick: () => alert(JSON.stringify(user.value, null, 4))
+        },
+        {
             text: 'Sair',
-            onClick: () => {user.setValue(false)}
+            onClick: () => logout()
         }
     ]
 

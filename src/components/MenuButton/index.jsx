@@ -10,7 +10,7 @@ export const MenuButton = ({ Icon, title, visible, route, navigate, current, set
     const icon_style = {
         width: '1.5vw',
         height: '1.5vw',
-        color: COLORS.menu_gray_color
+        color: COLORS.menu_gray
     }
 
     const active_style = {

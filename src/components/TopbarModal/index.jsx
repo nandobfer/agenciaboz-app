@@ -6,11 +6,12 @@ export const TopbarModal = ({ show, setShow, menuList }) => {
 
     const customStyles = {
         content: {
-        top: '3vw',
-        left: 'auto',
-        right: '1vw',
-        bottom: 'auto',
-        gap: '1vw'
+            flexDirection: 'column',
+            top: '3vw',
+            left: 'auto',
+            right: '1vw',
+            bottom: 'auto',
+            gap: '1vw'
         },
         overlay: {
             // backgroundColor: 'unset!important'
@@ -29,8 +30,10 @@ export const TopbarModal = ({ show, setShow, menuList }) => {
             >
                 {menuList.map(menu => {
                     return (
-                        <div key={menu.text} className="menu-container" onClick={menu.onClick}>
-                            <p>{menu.text}</p>
+                        <div key={menu.text} className="menu-wrapper">
+                            <div className="menu-container" onClick={menu.onClick}>
+                                <p>{menu.text}</p>
+                            </div>
                             { menuList.indexOf(menu) == (menuList.length - 1) ? null : <hr /> }
                         </div>
                     )

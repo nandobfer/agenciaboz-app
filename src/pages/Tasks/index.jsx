@@ -8,6 +8,7 @@ import './style.scss';
 import { Review } from './Review';
 import { Important } from './Important';
 import { TaskList } from '../../components/TaskList';
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 
 export const Tasks = () => {
     const navigate = useNavigate();
@@ -16,7 +17,7 @@ export const Tasks = () => {
     const DefaultTasks = () => {
         return (
         <div className='Default-Tasks-Component' >
-            <TaskList title={'Tarefas'} variation={{all: true}}
+            <TaskList title={'Tarefas'} variation={{all: true}} icon={<HomeOutlinedIcon />}
             />
         </div>
         )
