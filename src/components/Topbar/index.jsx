@@ -31,7 +31,7 @@ export const Topbar = () => {
     const account_menu = [
         {
             text: 'Sair',
-            onClick: () => {user.setValue(null)}
+            onClick: () => {user.setValue(false)}
         }
     ]
 
