@@ -101,7 +101,7 @@ export const TaskList = ({ title, variation }) => {
                                 >
                                 {c_tasks.map(task => {
                                     return (
-                                        <Task key={task.id} task={task} setNewTask={setNewTask} />
+                                        <Task key={task.id} task={task} setNewTask={setNewTask} review={variation.review} />
                                     )
                                 })}
                                 </Collapsible>
@@ -115,7 +115,7 @@ export const TaskList = ({ title, variation }) => {
                 
                             {completedTasks.map(task => {
                                 return (
-                                    <Task key={task.id} task={task} />
+                                    <Task key={task.id} task={task} review={variation.review} />
                                 )
                             })}
                         </Collapsible>
