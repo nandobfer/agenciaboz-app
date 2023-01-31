@@ -7,10 +7,20 @@ import { Users } from '../Users';
 import './style.scss';
 import { Review } from './Review';
 import { Important } from './Important';
+import { TaskList } from '../../components/TaskList';
 
 export const Tasks = () => {
     const navigate = useNavigate();
     const [current, setCurrent] = useState("/tarefas")
+
+    const DefaultTasks = () => {
+        return (
+        <div className='Default-Tasks-Component' >
+            <TaskList title={'Tarefas'} variation={{all: true}}
+            />
+        </div>
+        )
+    }
 
     return (
         <div className="Tasks-page">
@@ -19,7 +29,8 @@ export const Tasks = () => {
                 <SideBar current={current} setCurrent={setCurrent} navigate={navigate} />
                 <div className="main-container">
                         <Routes>
-                            <Route index element={<MyDay />} />
+                            <Route index element={<DefaultTasks />} />
+                            <Route path="/hoje" element={<MyDay />} />
                             <Route path="/revisao" element={<Review />} />
                             <Route path="/importante" element={<Important />} />
                             <Route path="/usuarios" element={<Users />} />
