@@ -38,7 +38,7 @@ export const SideBar = ({ current, setCurrent, navigate }) => {
     }, [visible])
 
     return (
-        <div className='SideBar-Component' style={{ flex: visible ? 0.15 : 0.04 }}>
+        <div className='SideBar-Component' style={{ flex: visible ? 0.2 : 0.04 }}>
             <div className="menu-button-container button" onClick={toggleMenu}>
                 <MenuIcon sx={icon_style} />
             </div>
