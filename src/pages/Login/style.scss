@@ -17,23 +17,36 @@
 
         .form-container {
             flex-direction: column;
+            align-items: center;
             background-color: $white;
             margin-top: 3vw;
             width: 30vw;
+            height: 38vh;
         }
     }
-
 
     img {
         width: 30vw;
         margin-top: 4vw;
     }
 
+    a {
+        opacity: 0.7;
+    }
+
     Form {
         display: flex;
         flex-direction: column;
+        gap: 1vh;
         align-items: center;
-        margin-top: 6vh;
+        margin-top: 3vh;
+    }
+
+    hr {
+        width: 27vw;
+        border: none;
+        border-top: 1px solid $border-gray-color;
+        margin-bottom: 3vh;
     }
 
     label {
@@ -43,11 +56,13 @@
     }
 
     input {
+        text-align: center;
+        opacity: 0.7;
         height: 5vh;
-        width: 20vw;
+        width: 27vw;
         padding-left: 1vw;
-        border-radius: 0.2vw;
-        border: none;
+        border-radius: 0.3vw;
+        border: 1px solid $border-gray-color;
     }
 
     input:focus {
@@ -58,18 +73,36 @@
         background-color: $home-button-color;
         cursor: pointer;
         font-size: 3vh;
-        margin-top: 6vh;
-        margin-bottom: 3vh;
         border-radius: 0.2vw;
         height: 5vh;
-        width: 7vw;
+        width: 27vw;
         border: none;
         color: white;
         transition: 0.3s;
     }
-
+    
     button:hover {
         background-color: black;
         transform: scale(1.1);
+    }
+
+    #create-account-button {
+        width: 17vw;
+    }
+
+    .password-container {
+        align-items: center;
+        position: relative;
+
+        svg {
+            cursor: pointer;
+            position: absolute;
+            right: 0.5vw;
+            transform: scale(0.8);
+        }
+
+        svg:hover {
+            stroke: $primary-color;
+        }
     }
 }

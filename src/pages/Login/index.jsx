@@ -5,6 +5,7 @@ import { api } from '../../api';
 import { useCustomers } from '../../hooks/useCustomers';
 import { useTeam } from '../../hooks/useTeam';
 import { useUser } from '../../hooks/useUser';
+import { ReactComponent as EyeIcon } from '../../icons/eye.svg';
 import './style.scss';
 
 export const Login = () => {
@@ -65,18 +66,22 @@ export const Login = () => {
                             className='default-input'
                         />
                         {/* <label htmlFor='input_senha'>Senha</label> */}
+                        <div className="password-container">
                         <Input
                             type='password'
                             id='input_senha'
                             placeholder='Senha'
                             className='default-input'
                         />
+                            <EyeIcon />
+                        </div>
                         <button className='default-button' type="submit">Entrar</button>
                         <p>{feedback}</p>
+                        <a href="#">Esqueceu a senha?</a>
+                        <hr />
                     </Form>
+                        <button id='create-account-button' className='default-button' type="submit" onClick={() => navigate('/cadastro')}>Criar nova conta</button>
                 </div>
-                <hr />
-                <button className='default-button' type="submit" onClick={() => navigate('/cadastro')}>Criar nova conta</button>
             </div>
         </div>
     )

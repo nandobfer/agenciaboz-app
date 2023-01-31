@@ -114,7 +114,8 @@ export const Signup = () => {
 
     return (
         <div className="Signup-page">
-            <h1>Cadastrar usuário</h1>
+            <img src='boz-LogoBranco.png' alt='BOZ' />
+            <h1>Cadastre-se</h1>
             <Form initialValues={inputs} onSubmit={values => onFormSubmit(values)}>
                 <div className="input-container">
                     <label htmlFor="name">Nome</label>
