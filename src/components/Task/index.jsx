@@ -37,7 +37,7 @@ export const Task = ({ task, setNewTask }) => {
                     <p>Responsável</p>
                     {task.planner.split(',').map(planner => {
                         return (
-                            <UserTag user={team.filter(user => user.id == planner)[0]} />
+                            <UserTag key={planner.id} user={team.filter(user => user.id == planner)[0]} />
                         )
                     })}
                 </div>
