@@ -14,7 +14,9 @@ export const Login = () => {
     const team = useTeam()
     const customers = useCustomers()
     const navigate = useNavigate();
+
     const [feedback, setFeedback] = useState('')
+    const [showPassword, setShowPassword] = useState(false)
 
     const onFormSubmit = (values) => {
         setFeedback('Verificando')
@@ -68,12 +70,12 @@ export const Login = () => {
                         {/* <label htmlFor='input_senha'>Senha</label> */}
                         <div className="password-container">
                         <Input
-                            type='password'
+                            type={showPassword ? 'text' : 'password'}
                             id='input_senha'
                             placeholder='Senha'
                             className='default-input'
                         />
-                            <EyeIcon />
+                            <EyeIcon onClick={() => setShowPassword(!showPassword)} />
                         </div>
                         <button className='default-button' type="submit">Entrar</button>
                         <p>{feedback}</p>
