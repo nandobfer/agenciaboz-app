@@ -2,6 +2,7 @@ import { useTeam } from '../../hooks/useTeam';
 import { UserTag } from '../UserTag';
 import { ReactComponent as MediumPriorityIcon } from '../../icons/medium_priority.svg';
 import { ReactComponent as HighPriorityIcon } from '../../icons/high_priority.svg';
+import DeleteIcon from '@mui/icons-material/Delete';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import './style.scss';
@@ -19,15 +20,22 @@ export const Task = ({ task, setNewTask, review }) => {
         task.done = !task.done
         api.post('/tasks/done', { done: task.done, id: task.id })
         .then(response => {
+            setNewTask(true)
         })
-        setNewTask(true)
     }
 
     const setFinished = (finished) => {
         api.post('/tasks/finished', { finished: finished, id: task.id })
         .then(response => {
+            setNewTask(true)
         })
-        setNewTask(true)
+    }
+
+    const deleteTask = () => {
+        api.post('/tasks/delete', { id: task.id }) 
+        .then(response => {
+            setNewTask(true)
+        })
     }
 
     const check_icon = {
@@ -74,6 +82,7 @@ export const Task = ({ task, setNewTask, review }) => {
             </div>
             <hr className="h-hr" />
             <div className="bottom">
+                { review ? <DeleteIcon onClick={() => deleteTask()} sx={{...check_icon, color: COLORS.menu_gray}} /> : null }
 
             </div>
         </div>
