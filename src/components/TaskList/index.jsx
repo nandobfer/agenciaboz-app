@@ -49,12 +49,12 @@ export const TaskList = ({ title, variation, icon }) => {
     }, [user])
 
     useEffect(() => {
-        for(const task of tasks) {
+        tasks.map(task => {
             const customer = _customers.filter(customer => customer.id == task.customer)[0]
             if (!customers.includes(customer)) {
                 setCustomers([...customers, customer])
             }
-        }
+        })
 
     }, [tasks])
 
