@@ -2,14 +2,15 @@
 
 .Searchbox-Component {
     position: relative;
-
+    
     .search-input {
         padding-left: 2vw;
+        outline: none;
     }
 
     .icon-container {
         position: absolute;
-        top: 0.4vh;
-        left: 0.1vw;
+        top: 0.2vh;
+        // left: 0.1vw;
     }
 }

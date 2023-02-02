@@ -2,6 +2,7 @@ import './style.scss';
 import { Form, Input } from 'react-burgos';
 import SearchIcon from '@mui/icons-material/Search';
 import COLORS from '../../sass/_colors.scss';
+import { width } from '@mui/system';
 
 export const Searchbox = () => {
 
@@ -10,7 +11,8 @@ export const Searchbox = () => {
     }
 
     const icon_style = {
-        color: COLORS.search_icon_color
+        color: COLORS.search_icon_color,
+        width: '2vw'
     }
 
     const onFormSubmit = (values) => {

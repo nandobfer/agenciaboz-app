@@ -54,15 +54,17 @@ export const Topbar = () => {
             <Logo />
             <p>Tarefas</p>
             <Searchbox />
-            <div className="settings-icon-container topbar-icon">
-                <SettingsIcon sx={settings_icon_style} />
-            </div>
-            <div className="notifications-icon-container topbar-icon">
-                <NotificationsActiveIcon sx={notifications_icon_style} />
-            </div>
-            <div className="person-icon-container topbar-icon">
-                <PersonIcon sx={person_icon_style} onClick={() => {setShowAccountModal(!showAccountModal)}} />
-                <TopbarModal show={showAccountModal} setShow={setShowAccountModal} menuList={account_menu} />
+            <div className="right-icons">
+                <div className="settings-icon-container topbar-icon">
+                    <SettingsIcon sx={settings_icon_style} />
+                </div>
+                <div className="notifications-icon-container topbar-icon">
+                    <NotificationsActiveIcon sx={notifications_icon_style} />
+                </div>
+                <div className="person-icon-container topbar-icon">
+                    <PersonIcon sx={person_icon_style} onClick={() => {setShowAccountModal(!showAccountModal)}} />
+                    <TopbarModal show={showAccountModal} setShow={setShowAccountModal} menuList={account_menu} />
+                </div>
             </div>
         </div>
     )
