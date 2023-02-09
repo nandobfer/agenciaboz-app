@@ -118,49 +118,51 @@ export const Signup = () => {
             <div className="form-container">
                 <h1>Cadastre-se</h1>
                 <Form initialValues={inputs} onSubmit={values => onFormSubmit(values)}>
-                    <div className="input-container">
-                        <label htmlFor="name">Nome</label>
-                        <Input id="name" type="text" required />
+                    <div className="signup-form">
+                        <div className="input-container">
+                            <label htmlFor="name">Nome</label>
+                            <Input id="name" type="text" required />
+                        </div>
+                        <div className="input-container">
+                            <label htmlFor="user">Usuário</label>
+                            <Input id="user" type="text" required />
+                        </div>
+                        <div className="input-container">
+                            <label htmlFor="password">Senha</label>
+                            <Input id="password" type="text" required />
+                        </div>
+                        <div className="input-container">
+                            <label htmlFor="type">Tipo</label>
+                            <Field as='select' name="type" id="type">
+                                {user_types.map(item => {
+                                    return (
+                                        <option key={item.id} value={item.id}>{item.name}</option>
+                                    )
+                                })}
+                            </Field>
+                        </div>
+                        <div className="input-container">
+                            <label htmlFor="cpf">CPF</label>
+                            <Input mask={cpf_mask} id="cpf" type="text" required />
+                        </div>
+                        <div className="input-container">
+                            <label htmlFor="birthday">Data de nascimento</label>
+                            <Input mask={dateMask} id="birthday" type="text" required />
+                        </div>
+                        <div className="input-container">
+                            <label htmlFor="role">Cargo</label>
+                            {/* EXEMPLO DE MAP */}
+                            <Field as='select' name='role' id='role'>
+                                {roles.map(item => {
+                                    return (
+                                        <option key={item.id} value={item.id}>{item.name}</option>
+                                    )
+                                })}
+                            </Field>
+                        </div>
+                        <button onClick={() => navigate(-1)}>Voltar</button>
+                        <button type='submit'>Cadastrar</button>
                     </div>
-                    <div className="input-container">
-                        <label htmlFor="user">Usuário</label>
-                        <Input id="user" type="text" required />
-                    </div>
-                    <div className="input-container">
-                        <label htmlFor="password">Senha</label>
-                        <Input id="password" type="text" required />
-                    </div>
-                    <div className="input-container">
-                        <label htmlFor="type">Tipo</label>
-                        <Field as='select' name="type" id="type">
-                            {user_types.map(item => {
-                                return (
-                                    <option key={item.id} value={item.id}>{item.name}</option>
-                                )
-                            })}
-                        </Field>
-                    </div>
-                    <div className="input-container">
-                        <label htmlFor="cpf">CPF</label>
-                        <Input mask={cpf_mask} id="cpf" type="text" required />
-                    </div>
-                    <div className="input-container">
-                        <label htmlFor="birthday">Data de nascimento</label>
-                        <Input mask={dateMask} id="birthday" type="text" required />
-                    </div>
-                    <div className="input-container">
-                        <label htmlFor="role">Cargo</label>
-                        {/* EXEMPLO DE MAP */}
-                        <Field as='select' name='role' id='role'>
-                            {roles.map(item => {
-                                return (
-                                    <option key={item.id} value={item.id}>{item.name}</option>
-                                )
-                            })}
-                        </Field>
-                    </div>
-                    <button onClick={() => navigate(-1)}>Voltar</button>
-                    <button type='submit'>Cadastrar</button>
                 </Form>
             </div>
         </div>

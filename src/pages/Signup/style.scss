@@ -9,26 +9,28 @@
 
     .form-container {
         flex-direction: column;
-        align-items: center;
         background-color: $white;
-        margin-top: 3vw;
+        margin-top: 1vw;
         width: 30vw;
-        height: 80vh;
+        height: 37vw;
+        color: $border-gray-color;
+        align-items: center;
+    }
+
+    .input-container label {
+        align-self: flex-start;
+        margin: 0.25vw 0;
+        font-size: 1vw;
     }
 
     img {
         width: 15vw;
-        margin-top: 4vh;
+        margin-top: 2vw;
     }
 
     h1 {
-        font-size: 2.5vw;
-        margin-top: 3vh;
-        margin-bottom: 6vh;
-    }
-
-    Form {
-        align-items: center;
+        font-size: 2vw;
+        margin: 1vw 0 0.5vw;
     }
 
     .input-container {
@@ -36,30 +38,23 @@
         align-items: center;
     }
 
-    label {
-        margin-bottom: 0.5vh;
+    input, select {
+        font-size: 1vw;
+        text-align: left;
+        opacity: 0.7;
+        height: 2vw;
+        width: 27vw;
+        padding-left: 0.5vw;
+        border-radius: 0.3vw;
+        border: 1px solid $border-gray-color;
     }
 
-    input {
-        border: none;
-        border-radius: 6vw;
-        margin-bottom: 2vh;
-        height: 3vh;
-        width: 20vw;
-        padding-left: 3vw;
+    .signup-form {
+        flex-direction: column;
     }
 
     input:focus {
         outline: 3px solid $secondary-color;
-    }
-
-    select {
-        border: none;
-        border-radius: 6vw;
-        margin-bottom: 2vh;
-        height: 3vh;
-        width: 20vw;
-        padding-left: 7vw;
     }
 
     select:focus {
@@ -67,18 +62,18 @@
     }
 
     button {
-        background-color: #004f4f;
+        margin-top: 0.75vw;
+        background-color: $home-button-color;
         cursor: pointer;
-        font-size: 3vh;
-        border-radius: 5vw;
-        height: 5vh;
-        width: 7vw;
-        margin-top: 3vh;
+        font-size: 1.25vw;
+        border-radius: 0.2vw;
+        height: 2vw;
+        width: 27vw;
         border: none;
         color: white;
         transition: 0.3s;
     }
-
+    
     button:hover {
         background-color: black;
         transform: scale(1.1);
