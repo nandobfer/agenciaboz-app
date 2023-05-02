@@ -106,3 +106,45 @@
         }
     }
 }
+
+@media (orientation: portrait) {
+    .login-page {
+        .main-container {
+            // justify-content: center;
+            gap: 15vw;
+
+            img {
+                width: 70vw;
+                margin-top: 15vw;
+            }
+
+            .form-container {
+                width: 70vw;
+                padding: 5vw;
+
+                form {
+                    width: 100%;
+                    margin: 0;
+
+                    .password-container {
+                        width: 100%;
+                    }
+                }
+
+            }
+
+        }
+
+        input {
+            width: 100%;
+        }
+
+        button {
+            width: 100%;
+        }
+
+        #create-account-button {
+            width: 80%;
+        }
+    }
+}
